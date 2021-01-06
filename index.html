@@ -10,15 +10,23 @@
       <section class="main-left-box">
         <h1 class="main-title">New Activity</h1>
         <form>
-          <label>Select a category:</label>
-          <button></button>
-          <button></button>
-          <button></button>
-          <br>
+          <section class="category">
+            <label>Select a category:</label>
+            <input class="category-input" type="radio" name="study">
+            <label for="study"></label>
+            <input class="category-input" type="radio" name="meditate">
+            <label for="meditate"></label>
+            <input class="category-input" type="radio" name="exercise">
+            <label for="exercise"></label>
+          </section>
           <label>What would youlike to accomplish during this time?</label>
           <input type="text">
-          <input type="number">
-          <input type="number">
+          <section class="input-time">
+            <label>Minutes</label>
+            <input type="number">
+            <label>Seconds</label>
+            <input type="number">
+          </section>
           <button>START ACTIVITY</button>
         </form>
       </section>
