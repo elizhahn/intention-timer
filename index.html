@@ -11,7 +11,7 @@
         <h1 class="main-title">New Activity</h1>
         <form>
           <h2>Select a category:</h2>
-          <ul class="category">
+          <ul class="category-container">
             <li>
               <input class="category-input study-box hidden" type="radio" name="category" id="study">
               <label class="category-label" for="study">
@@ -37,23 +37,31 @@
               </label>
             </li>
            </ul>
-           <ul class="activity">
+           <ul class="activity-container">
             <li>
-              <label class="activity-input-label">What would youlike to accomplish during this time?</label>
-              <input class="activity-input" type="text" id="activity">
+              <label class="activity-input-label">What would you like to accomplish during this time?</label>
+              <input class="activity-input input-line" type="text" id="activity">
             </li>
-            <li>
-              <label class="activity-input-label">Minutes</label>
-              <input class="activity-input" type="text" id="minutes">
-              <label class="activity-input-label">Seconds</label>
-              <input class="activity-input" type="text" id="seconds">
-            </li>
+            <div class="activity-list-container">
+              <li class="activity-list">
+                <label class="activity-input-label">Minutes</label>
+                <input class="activity-input" type="text" id="minutes">
+              </li>
+              <li class="activity-list">
+                <label class="activity-input-label">Seconds</label>
+                <input class="activity-input" type="text" id="seconds">
+              </li>
+          </div>
            </ul>
-          <button>START ACTIVITY</button>
+         <button class="activity-button">START ACTIVITY</button>
         </form>
       </section>
       <section class="main-right-box">
        <h1 class="main-title">Past Activities</h1>
+       <section class="main-right-box-default">
+         <p class="past-activities-default">You haven't logged any activities yet.</p>
+         <p class="past-activities-default">Complete the form to the left to get started!</p>
+       </section>
       </section>
     </main>
   <script type="text/javascript" src="main.js"></script>
