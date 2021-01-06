@@ -107,7 +107,7 @@ li {
 
 .button-title {
   align-self: center;
-  margin-top: 3px; 
+  margin-top: 3px;
 }
 
 .study-box:checked + label {
@@ -124,6 +124,19 @@ li {
   border-color: #FD8078;
   color: #FD8078;
 }
+
+/* ----------activity inputs----------- */
+
+.activity {
+  display: flex;
+  flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+}
+
+
+
+
 
 
 
