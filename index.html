@@ -10,14 +10,26 @@
       <section class="main-left-box">
         <h1 class="main-title">New Activity</h1>
         <form>
+          <h2>Select a category:</h2>
           <section class="category">
-            <label>Select a category:</label>
-            <input class="category-input" type="radio" name="study">
-            <label for="study"></label>
-            <input class="category-input" type="radio" name="meditate">
-            <label for="meditate"></label>
-            <input class="category-input" type="radio" name="exercise">
-            <label for="exercise"></label>
+            <input class="category-input study-box hidden" type="radio" name="category" id="study">
+            <label class="category-label" for="study">
+              <img class="category-icon" src="assets/study.svg" alt="light bulb">
+              <img class="category-icon hidden" src="assets/study-active.svg" alt="light bulb">
+              <p class="button-title">Study</p>
+            </label>
+            <input class="category-input meditate-box hidden" type="radio" name="category" id="meditate">
+            <label class="category-label"for="meditate">
+              <img class="category-icon" src="assets/meditate.svg" alt="lotus flower">
+              <img class="category-icon hidden" src="assets/meditate-active.svg" alt="lotus flower">
+              <p class="button-title">Meditate</p>
+            </label>
+            <input class="category-input exercise-box hidden" type="radio" name="category" id="exercise">
+            <label class="category-label"for="exercise">
+              <img class="category-icon" src="assets/exercise.svg" alt="tennis shoe">
+              <img class="category-icon hidden" src="assets/exercise-active.svg" alt="tennis shoe">
+              <p class="button-title">Exercise</p>
+            </label>
           </section>
           <label>What would youlike to accomplish during this time?</label>
           <input type="text">
