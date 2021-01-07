@@ -143,11 +143,6 @@ li {
   flex: 0 1 100%;
 } */
 
-.activity-time-container {
-  display: flex;
-  justify-content: space-between;
-}
-
 .activity-input-label {
   display: block;
 }
@@ -162,11 +157,8 @@ li {
 
 }
 
-.input-line {
-  width: 100%;
-}
-
 .activity-input {
+  width: 100%;
   outline: none;
 }
 
@@ -186,7 +178,7 @@ li {
 }
 
 .activity-list {
-  flex-basis: 80%;
+  flex-basis: 40%;
 }
 
 
@@ -198,7 +190,7 @@ li {
 }
 
 .main-right-box-default {
-  margin: 40px 30px 0px 30px; 
+  margin: 40px 30px 0px 30px;
 }
 
 
