@@ -7,17 +7,25 @@ var inputSeconds = document.getElementById("seconds");
 var buttonStartActivity = document.querySelector(".activity-button")
 
 categoryContainer.addEventListener("click", activateIcon);
-buttonStartActivity.addEventListener("click", validateNumber);
+// buttonStartActivity.addEventListener("click", validateNumber);
+inputMinutes.addEventListener("keyup", validateNumberMinutes)
 
 function preventDefault(e){
   e.preventDefault();
 }
 
-function validateNumber(){
-  if(typeof(inputMinutes.value) !== "number" || typeof(inputSeconds) !== "number") {
-    alert("yes");
-  }
+function validateNumberMinutes(e){
+  if (!(e.keyCode >= 49 && e.keyCode <= 57) && !(e.keyCode >= 96 && e.keyCode <= 105) &&){
+    e.target.value = e.target.value.substring(0, e.target.value.length - 1);
+  };
 };
+
+
+// function validateNumber(){
+//   if(typeof(inputMinutes.value) !== "number" || typeof(inputSeconds) !== "number") {
+//     alert("yes");
+//   }
+// };
 
 function activateIcon() {
   displayActivatedIcon(event);
