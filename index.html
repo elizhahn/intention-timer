@@ -1,0 +1,69 @@
+<html lang="en" dir="ltr">
+  <head>
+    <title>Intention Timer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>INTENTION TIMER</header>
+    <main>
+      <section class="main-left-box">
+        <h1 class="main-title">New Activity</h1>
+        <form>
+          <h2>Select a category:</h2>
+          <ul class="category-container">
+            <li>
+              <input class="category-input study-box hidden" type="radio" name="category" id="study">
+              <label class="category-label" for="study">
+                <img class="category-icon" src="assets/study.svg" alt="light bulb">
+                <img class="category-icon hidden" src="assets/study-active.svg" alt="light bulb">
+                <p class="button-title">Study</p>
+              </label>
+            </li>
+            <li>
+              <input class="category-input meditate-box hidden" type="radio" name="category" id="meditate">
+              <label class="category-label"for="meditate">
+                <img class="category-icon" src="assets/meditate.svg" alt="lotus flower">
+                <img class="category-icon hidden" src="assets/meditate-active.svg" alt="lotus flower">
+                <p class="button-title">Meditate</p>
+              </label>
+            </li>
+            <li>
+              <input class="category-input exercise-box hidden" type="radio" name="category" id="exercise">
+              <label class="category-label"for="exercise">
+                <img class="category-icon" src="assets/exercise.svg" alt="tennis shoe">
+                <img class="category-icon hidden" src="assets/exercise-active.svg" alt="tennis shoe">
+                <p class="button-title">Exercise</p>
+              </label>
+            </li>
+           </ul>
+           <ul class="activity-container">
+            <li>
+              <label class="activity-input-label">What would you like to accomplish during this time?</label>
+              <input class="activity-input" type="text" id="activity">
+            </li>
+            <div class="activity-list-container">
+              <li class="activity-list">
+                <label class="activity-input-label">Minutes</label>
+                <input class="activity-input" type="text" id="minutes">
+              </li>
+              <li class="activity-list">
+                <label class="activity-input-label">Seconds</label>
+                <input class="activity-input" type="text" id="seconds">
+              </li>
+            </div>
+           </ul>
+           <input type="submit" class="activity-button" value="START ACTIVITY">
+        </form>
+      </section>
+      <section class="main-right-box">
+       <h1 class="main-title">Past Activities</h1>
+       <section class="main-right-box-default">
+         <p class="past-activities-default">You haven't logged any activities yet.</p>
+         <p class="past-activities-default">Complete the form to the left to get started!</p>
+       </section>
+      </section>
+    </main>
+  <script type="text/javascript" src="main.js"></script>
+  </body>
+ </html>
