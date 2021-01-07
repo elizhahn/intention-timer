@@ -8,13 +8,20 @@ var buttonStartActivity = document.querySelector(".activity-button")
 
 categoryContainer.addEventListener("click", activateIcon);
 inputMinutes.addEventListener("keyup", validateNumberMinutes)
+inputSeconds.addEventListener("keyup", validateNumberSeconds)
 
 function preventDefault(e){
   e.preventDefault();
 }
 
 function validateNumberMinutes(e){
-  if (!(e.keyCode >= 49 && e.keyCode <= 57) && !(e.keyCode >= 96 && e.keyCode <= 105) &&){
+  if (!(e.keyCode >= 48 && e.keyCode <= 57) && !(e.keyCode >= 96 && e.keyCode <= 105) && !(e.keyCode == 8)){
+    e.target.value = e.target.value.substring(0, e.target.value.length - 1);
+  };
+};
+
+function validateNumberSeconds(e){
+  if (!(e.keyCode >= 49 && e.keyCode <= 57) && !(e.keyCode >= 96 && e.keyCode <= 105) && !(e.keyCode == 8)){
     e.target.value = e.target.value.substring(0, e.target.value.length - 1);
   };
 };
