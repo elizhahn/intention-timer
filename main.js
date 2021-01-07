@@ -7,7 +7,6 @@ var inputSeconds = document.getElementById("seconds");
 var buttonStartActivity = document.querySelector(".activity-button")
 
 categoryContainer.addEventListener("click", activateIcon);
-// buttonStartActivity.addEventListener("click", validateNumber);
 inputMinutes.addEventListener("keyup", validateNumberMinutes)
 
 function preventDefault(e){
@@ -19,13 +18,6 @@ function validateNumberMinutes(e){
     e.target.value = e.target.value.substring(0, e.target.value.length - 1);
   };
 };
-
-
-// function validateNumber(){
-//   if(typeof(inputMinutes.value) !== "number" || typeof(inputSeconds) !== "number") {
-//     alert("yes");
-//   }
-// };
 
 function activateIcon() {
   displayActivatedIcon(event);
