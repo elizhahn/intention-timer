@@ -50,16 +50,19 @@ main {
 
 /* ---------FORM CARD------------- */
 
-form {
+.form-container {
   margin: 0px 20px 30px 20px;
   padding: 40px 80px;
   background-color: #46424D;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+  border-radius: 3px;
+  height: 70%;
+}
+
+form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  border-radius: 3px;
-  height: 60%;
 }
 
 form > * {
@@ -154,9 +157,8 @@ form > * {
   color: #000000;
   border: none;
   border-radius: 2px;
-  height: 32px;
-  width: 152px;
   align-self: flex-end;
+  padding: 7px 20px;
 }
 
 .activity-list-container {
@@ -172,12 +174,14 @@ form > * {
 
 /* ----------past activities section------ */
 
-.past-activities-default {
+.past-activity-default {
+  font-size: .8em;
+  margin-bottom: 5px;
   color: #CBC9CF;
   text-align: center;
 }
 
-.main-right-box-default {
+.past-activity-container {
   margin: 40px 40px 0px 40px;
 }
 
