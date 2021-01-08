@@ -18,10 +18,13 @@ var currentIcon;
 var createdActivities = [];
 
 
-categoryContainer.addEventListener("click", activateIcon);
-buttonStartActivity.addEventListener('click', submitForm);
-inputMinutes.addEventListener("keyup", validateNumberInputMinutes)
-inputSeconds.addEventListener("keyup", validateNumberInputSeconds)
+categoryContainer.addEventListener("click", displayActivatedIcon);
+buttonStartActivity.addEventListener('click', validateForm);
+inputMinutes.addEventListener("keyup", validateNumberMinutes)
+inputSeconds.addEventListener("keyup", validateNumberSeconds)
+form.addEventListener("submit", function() {
+  event.preventDefault();
+});
 
 
 function displayTimer() {
@@ -45,32 +48,21 @@ function displayTimer() {
  }
 }
 
-
-function activateIcon() {
-  displayActivatedIcon(event);
-}
-
-function validateNumberInputMinutes(){
-  validateNumberMinutes(event);
-};
-
-function validateNumberMinutes(event){
+//We should combine these functions??
+function validateNumberMinutes(){
   if (!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) && !(event.keyCode == 8)){
     event.target.value = event.target.value.substring(0, event.target.value.length - 1);
   };
 };
 
-function validateNumberInputSeconds(){
-  validateNumberSeconds(event);
-};
 
-function validateNumberSeconds(event){
+function validateNumberSeconds(){
   if (!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) && !(event.keyCode == 8)){
     event.target.value = event.target.value.substring(0, event.target.value.length - 1);
   };
 };
 
-function displayActivatedIcon(event) {
+function displayActivatedIcon() {
   for(var i = 0; i < categoryInputs.length; i++) {
     if(categoryInputs[i].checked) {
       iconActivated[i].classList.toggle('hidden');
@@ -80,13 +72,7 @@ function displayActivatedIcon(event) {
   };
 };
 
-function submitForm() {
-  validateForm(event);
-  displayTimer();
-}
-
-function validateForm(event) {
-  event.preventDefault();
+function validateForm() {
   if(currentIcon !== undefined) {
   var userCategory = currentIcon.id;
   var userActivity = inputActivity.value;
@@ -96,6 +82,7 @@ function validateForm(event) {
   var createdActivity = new Activity(userCategory, userActivity, userMinutes, userSeconds);
   createdActivities.push(createdActivity);
   createdActivity.countdown();
+  displayTimer();
 } else {
   showErrorMessage(0);
 }
