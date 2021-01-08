@@ -9,6 +9,7 @@
     <main>
       <section class="main-left-box">
         <h1 class="main-title">New Activity</h1>
+        <section class="form-container">
         <form>
           <h2>Select a category:</h2>
           <ul class="category-container" id="categoryList">
@@ -55,10 +56,16 @@
                 <input class="activity-input" type="text" id="seconds">
                 <label class="error-message hidden" for="seconds">A time limit is required.</label>
               </li>
-            </div>
-           </ul>
-           <input type="submit" class="activity-button" value="START ACTIVITY">
-        </form>
+            </ul>
+            <label class="error-message hidden">A category is required</label>
+            <input type="submit" class="activity-button" value="START ACTIVITY">
+          </form>
+          <section class="timer-container hidden">
+            <p class="timer-activity-text"></p>
+            <p class="timer"></p>
+            <button class="timer-button">START</button>
+          </section>
+        </section>
       </section>
       <section class="main-right-box">
        <h1 class="main-title">Past Activities</h1>
