@@ -11,7 +11,7 @@
         <h1 class="main-title">New Activity</h1>
         <form>
           <h2>Select a category:</h2>
-          <ul class="category-container">
+          <ul class="category-container" id="categoryList">
             <li>
               <input class="category-input study-box hidden" type="radio" name="category" id="study">
               <label class="category-label" for="study">
@@ -37,23 +37,23 @@
               </label>
             </li>
            </ul>
-           <label class="error-message hidden">A category is required</label>
+           <label class="error-message hidden" for="categoryList">A category is required</label>
            <ul class="activity-container">
             <li>
               <label class="activity-input-label">What would you like to accomplish during this time?</label>
               <input class="activity-input" type="text" id="activity">
-              <label class="error-message hidden">A description is required.</label>
+              <label class="error-message hidden" for"activity">A description is required.</label>
             </li>
             <div class="activity-list-container">
               <li class="activity-list">
                 <label class="activity-input-label">Minutes</label>
                 <input class="activity-input" type="text" id="minutes">
-                <label class="error-message hidden">A time limit is required.</label>
+                <label class="error-message hidden" for="minutes">A time limit is required.</label>
               </li>
               <li class="activity-list">
                 <label class="activity-input-label">Seconds</label>
                 <input class="activity-input" type="text" id="seconds">
-                <label class="error-message hidden">A time limit is required.</label>
+                <label class="error-message hidden" for="seconds">A time limit is required.</label>
               </li>
             </div>
            </ul>
