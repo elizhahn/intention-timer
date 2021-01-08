@@ -12,7 +12,10 @@ Error: #EFB7EC */
 * {
 margin: 0;
 font-family: 'Montserrat', sans-serif;
-color: #FFF;
+}
+
+body {
+  color: #FFF;
 }
 
 /* ---------HEADER-------------- */
