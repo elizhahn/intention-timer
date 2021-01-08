@@ -53,19 +53,16 @@ main {
 
 /* ---------FORM CARD------------- */
 
-.form-container {
+form {
   margin: 0px 20px 30px 20px;
   padding: 40px 80px;
   background-color: #46424D;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
-  border-radius: 3px;
-  height: 70%;
-}
-
-form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  border-radius: 3px;
+  height: 70%;
 }
 
 form > * {
@@ -195,7 +192,7 @@ form > * {
   border-radius: 100px;
   border: solid;
   color: #FFF;
-  font-size: 1.3em; 
+  font-size: 1.3em;
 }
 
 .timer-border {
@@ -217,4 +214,13 @@ form > * {
 
 .hidden {
   display: none;
+}
+
+.error-message {
+  color: #EFB7EC;
+}
+
+.warning-icon {
+  height: 10px;
+  width: 5px;
 }
