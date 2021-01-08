@@ -16,7 +16,7 @@ categoryContainer.addEventListener("click", activateIcon);
 buttonStartActivity.addEventListener('click', submitForm);
 
 function toggle(element, className) {
-  element.classList.toggle(className)
+  element.classList.toggle(className);
 }
 
 function preventDefault(e){
@@ -45,9 +45,11 @@ function submitForm(e) {
   var userActivity = inputActivity.value;
   var userMinutes = inputMinutes.value;
   var userSeconds = inputSeconds.value;
-  checkInputs(userActivity, userMinutes, userSeconds);
+  checkInputs();
   var createdActivity = new Activity(userCategory, userActivity, userMinutes, userSeconds);
   createdActivities.push(createdActivity);
+} else {
+  showErrorMessage(0);
 }
 }
 
@@ -55,7 +57,8 @@ function checkInputs() {
   var inputs = [inputActivity, inputMinutes, inputSeconds];
   for(var i = 0; i < inputs.length; i++) {
     if(!inputs[i].value) {
-      showErrorMessage(i);
+      showErrorMessage(i + 1);
+      break;
     }
   }
 }
