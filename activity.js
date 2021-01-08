@@ -8,7 +8,13 @@ class Activity {
     this.id = id;
   };
   countdown(){
-    console.log();
+    timerText.innerText = `${this.description}`;
+    setInterval(function() {
+      var minutes = this.minutes.value;
+      var seconds = this.seconds.value;
+      timer.textContent = `${minutes} : ${seconds}`;
+
+    });
   };
   markComplete(){
     console.log();
