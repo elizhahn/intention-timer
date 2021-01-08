@@ -15,8 +15,8 @@ var createdActivities = [];
 
 categoryContainer.addEventListener("click", activateIcon);
 buttonStartActivity.addEventListener('click', submitForm);
-inputMinutes.addEventListener("keyup", validateNumberMinutes)
-inputSeconds.addEventListener("keyup", validateNumberSeconds)
+inputMinutes.addEventListener("keyup", validateNumberInputMinutes)
+inputSeconds.addEventListener("keyup", validateNumberInputSeconds)
 
 
 
@@ -24,15 +24,23 @@ function activateIcon() {
   displayActivatedIcon(event);
 }
 
-function validateNumberMinutes(e){
-  if (!(e.keyCode >= 48 && e.keyCode <= 57) && !(e.keyCode >= 96 && e.keyCode <= 105) && !(e.keyCode == 8)){
-    e.target.value = e.target.value.substring(0, e.target.value.length - 1);
+function validateNumberInputMinutes(){
+  validateNumberMinutes(event);
+};
+
+function validateNumberMinutes(event){
+  if (!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) && !(event.keyCode == 8)){
+    event.target.value = event.target.value.substring(0, event.target.value.length - 1);
   };
 };
 
-function validateNumberSeconds(e){
-  if (!(e.keyCode >= 49 && e.keyCode <= 57) && !(e.keyCode >= 96 && e.keyCode <= 105) && !(e.keyCode == 8)){
-    e.target.value = e.target.value.substring(0, e.target.value.length - 1);
+function ValidateNumberInputSeconds(){
+  validateNumberSeconds(event);
+};
+
+function validateNumberSeconds(event){
+  if (!(event.keyCode >= 49 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) && !(event.keyCode == 8)){
+    event.target.value = event.target.value.substring(0, event.target.value.length - 1);
   };
 };
 
