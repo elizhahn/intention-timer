@@ -9,6 +9,7 @@ var inputSeconds = document.getElementById("seconds");
 var buttonStartActivity = document.querySelector(".activity-button");
 var buttonTitles = document.querySelector('.button-title');
 var errorMessages = document.querySelectorAll('.error-message');
+var warningIcons = document.querySelectorAll('.warning-icon');
 var form = document.querySelector("form");
 var containerTimer = document.querySelector(".timer-container");
 var timer = document.querySelector(".timer");
@@ -16,6 +17,8 @@ var timerText = document.querySelector(".timer-activity-text");
 var timerButton = document.querySelector(".timer-button");
 var currentIcon;
 var createdActivities = [];
+var inputs = [currentIcon, inputActivity, inputMinutes, inputSeconds];
+
 
 
 categoryContainer.addEventListener("click", displayActivatedIcon);
@@ -85,6 +88,7 @@ function displayActivatedIcon() {
 function validateForm() {
   if(currentIcon === undefined) {
     showErrorMessage(0);
+    errorMessages[0].style.marginTop = "0px";
   }
   else if (!checkInputs()) {
     checkInputs();
@@ -99,10 +103,9 @@ function validateForm() {
 }
 
 function checkInputs() {
-  var inputs = [inputActivity, inputMinutes, inputSeconds];
-  for(var i = 0; i < inputs.length; i++) {
+  for(var i = 1; i < inputs.length; i++) {
     if(!inputs[i].value) {
-      showErrorMessage(i + 1);
+      showErrorMessage(i);
       return false
     }
   }
@@ -110,12 +113,23 @@ function checkInputs() {
 }
 
 function showErrorMessage(index) {
+  checkErrorMessages();
   errorMessages[index].classList.remove('hidden');
+  warningIcons[index].classList.remove('hidden');
+  if(index > 0) {
+    inputs[index].style.borderColor = "#EFB7EC";
+  }
 }
 
 function startCountdown() {
   createdActivities[0].countdown();
 }
 
-// <span class="warning-icon"> <svg id="Capa_1" enable-background="new 0 0 551.14 551.14" height="512" viewBox="0 0 551.14 551.14" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m533.912 551.135h-516.684c-5.971 0-11.504-3.095-14.649-8.174s-3.431-11.403-.757-16.752l258.342-516.684c2.925-5.817 9.16-9.517 15.397-9.52 6.243-.003 12.488 3.697 15.415 9.52l258.342 516.685c2.674 5.349 2.388 11.672-.757 16.752-3.144 5.078-8.678 8.173-14.649 8.173zm-488.814-34.446h460.945l-230.474-460.944-230.473 460.944z" fill="#EFB7EC"/><path d="m258.347 206.678h34.446v172.228h-34.446z" fill="#EFB7EC"/><path d="m258.347 413.352h34.446v34.446h-34.446z" fill="#EFB7EC"/></svg> </span> A category is required</label>
-// .error-message { color: #EFB7EC; } .warning-icon { height: 10px; width: 5px; }
+function checkErrorMessages() {
+  for(var i = 0; i < errorMessages.length; i++) {
+    if(!errorMessages[i].classList.contains('hidden')) {
+      hide(errorMessages[i]);
+      inputs[i].style.borderColor = "#CBC9CF"
+    }
+  }
+}
