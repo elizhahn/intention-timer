@@ -20,21 +20,31 @@ var createdActivities = [];
 
 categoryContainer.addEventListener("click", displayActivatedIcon);
 buttonStartActivity.addEventListener('click', validateForm);
-inputMinutes.addEventListener("keyup", validateNumberMinutes)
-inputSeconds.addEventListener("keyup", validateNumberSeconds)
+inputMinutes.addEventListener("keyup", validateNumberMinutes);
+inputSeconds.addEventListener("keyup", validateNumberSeconds);
 form.addEventListener("submit", function() {
   event.preventDefault();
-});
+})
 
 
+function display(feature) {
+  feature.classList.remove("hidden");
+}
+
+function hide(feature) {
+  feature.classList.add("hidden");
+}
+
+//will need to change inputMinutes to createdActivity (obj instance) exstenion
 function displayTimer() {
-  form.classList.add("hidden");
-  containerTimer.classList.remove("hidden");
+  hide(form);
+  display(containerTimer);
+  timerText.innerText = `${inputActivity.value}`
+  timer.textContent = `${inputMinutes.value} : ${inputSeconds.value}`
   var category;
   for (var i = 0; i < categoryInputs.length; i++){
     if(categoryInputs[i].checked) {
       category = categoryInputs[i].classList;
-      console.log(category);
     }
   }
     if(category.contains("study-box")) {
@@ -48,13 +58,12 @@ function displayTimer() {
  }
 }
 
-//We should combine these functions??
+// Should we combine these functions with a class??
 function validateNumberMinutes(){
   if (!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) && !(event.keyCode == 8)){
     event.target.value = event.target.value.substring(0, event.target.value.length - 1);
   };
 };
-
 
 function validateNumberSeconds(){
   if (!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) && !(event.keyCode == 8)){
@@ -72,20 +81,22 @@ function displayActivatedIcon() {
   };
 };
 
+
 function validateForm() {
-  if(currentIcon !== undefined) {
-  var userCategory = currentIcon.id;
-  var userActivity = inputActivity.value;
-  var userMinutes = inputMinutes.value;
-  var userSeconds = inputSeconds.value;
-  checkInputs();
-  var createdActivity = new Activity(userCategory, userActivity, userMinutes, userSeconds);
-  createdActivities.push(createdActivity);
-  createdActivity.countdown();
-  displayTimer();
-} else {
-  showErrorMessage(0);
-}
+  if(currentIcon === undefined) {
+    showErrorMessage(0);
+  }
+  else if (!checkInputs()) {
+    checkInputs();
+  }
+  else {
+    var createdActivity = new Activity(currentIcon.id, inputActivity.value, inputMinutes.value, inputSeconds.value);
+    createdActivities.push(createdActivity);
+    //we will need to call this method on the start button listener instead
+    //need to take displaly funcitonality and move it
+    createdActivity.countdown();
+    displayTimer();
+  }
 }
 
 function checkInputs() {
@@ -93,10 +104,12 @@ function checkInputs() {
   for(var i = 0; i < inputs.length; i++) {
     if(!inputs[i].value) {
       showErrorMessage(i + 1);
-      break;
+      return false
     }
   }
+  return true;
 }
+
 
 function showErrorMessage(index) {
   errorMessages[index].classList.remove('hidden');
