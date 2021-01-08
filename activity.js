@@ -8,13 +8,23 @@ class Activity {
     this.id = id;
   };
   countdown(){
-    timerText.innerText = `${this.description}`;
-    setInterval(function() {
-      var minutes = this.minutes.value;
-      var seconds = this.seconds.value;
-      timer.textContent = `${minutes} : ${seconds}`;
+    var time = Number(this.minutes * 60) + Number(this.seconds)
+    console.log(time);
+    var decreaseTime = setInterval(function() {
+        var minutes = String(Math.trunc(time / 60)).padStart(2, 0)
+        var seconds = String(Math.trunc(time % 60)).padStart(2, 0)
+     //display complete on the buttonTitles
+     timer.textContent = `${minutes}:${seconds}`;
 
-    });
+      //decrease time
+        time--;
+      //clear timer
+
+
+
+      //log activity button displays
+
+    }, 1000);
   };
   markComplete(){
     console.log();
