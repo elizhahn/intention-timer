@@ -38,26 +38,26 @@
               </label>
             </li>
            </ul>
-           <label class="error-message hidden" for="categoryList">A category is required</label>
+           <label class="error-message visibility-hidden" for="categoryList">
+            <span> <img class="warning-icon visibility-hidden" src="assets/warning.svg" alt="error icon"></span>A category is required.</label>
            <ul class="activity-container">
             <li>
               <label class="activity-input-label">What would you like to accomplish during this time?</label>
               <input class="activity-input" type="text" id="activity">
-              <label class="error-message hidden" for"activity">A description is required.</label>
+              <label class="error-message visibility-hidden" for"activity">
+              <span> <img class="warning-icon visibility-hidden" src="assets/warning.svg" alt="error icon"></span>A description is required.</label>
             </li>
             <div class="activity-list-container">
               <li class="activity-list">
                 <label class="activity-input-label">Minutes</label>
                 <input class="activity-input" type="text" id="minutes">
-                <label class="error-message hidden" for="minutes">A time limit is required.</label>
-              </li>
+                <label class="error-message visibility-hidden" for="minutes"><span> <img class="warning-icon visibility-hidden" src="assets/warning.svg" alt="error icon"></span>A time limit is required.</label>
               <li class="activity-list">
                 <label class="activity-input-label">Seconds</label>
                 <input class="activity-input" type="text" id="seconds">
-                <label class="error-message hidden" for="seconds">A time limit is required.</label>
+                <label class="error-message visibility-hidden" for="seconds"> <span> <img class="warning-icon visibility-hidden" src="assets/warning.svg" alt="error icon"></span>A time limit is required.</label>
               </li>
             </ul>
-            <label class="error-message hidden">A category is required</label>
             <input type="submit" class="activity-button" value="START ACTIVITY">
           </form>
           <section class="timer-container hidden">
@@ -79,3 +79,5 @@
   <script type="text/javascript" src="main.js"></script>
   </body>
  </html>
+
+<img class="warning-icon visibility-hidden" src="assets/warning.svg" alt="error icon">
