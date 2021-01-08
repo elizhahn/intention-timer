@@ -1,6 +1,7 @@
 var iconDeactivated = document.querySelectorAll(".deactivated");
 var iconActivated = document.querySelectorAll(".activated");
 var categoryInputs = document.querySelectorAll(".category-input");
+var categoryButtons = document.querySelectorAll(".category-label");
 var categoryContainer = document.querySelector(".category-container");
 var inputActivity = document.getElementById('activity');
 var inputMinutes = document.getElementById("minutes");
@@ -15,13 +16,6 @@ var createdActivities = [];
 categoryContainer.addEventListener("click", activateIcon);
 buttonStartActivity.addEventListener('click', submitForm);
 
-function toggle(element, className) {
-  element.classList.toggle(className);
-}
-
-function preventDefault(e){
-  e.preventDefault();
-}
 
 function activateIcon() {
   displayActivatedIcon(event);
@@ -30,16 +24,19 @@ function activateIcon() {
 function displayActivatedIcon(event) {
   for(var i = 0; i < categoryInputs.length; i++) {
     if(categoryInputs[i].checked) {
-      iconDeactivated[i].classList.toggle("hidden");
       iconActivated[i].classList.toggle('hidden');
+      iconDeactivated[i].classList.toggle('hidden');
       currentIcon = categoryInputs[i];
     };
   };
 };
 
+function submitForm() {
+  validateForm(event);
+}
 
-function submitForm(e) {
-  e.preventDefault();
+function validateForm(event) {
+  event.preventDefault();
   if(currentIcon !== undefined) {
   var userCategory = currentIcon.id;
   var userActivity = inputActivity.value;
