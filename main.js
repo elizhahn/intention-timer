@@ -147,3 +147,7 @@ function checkErrorMessages() {
     }
   }
 }
+
+function replaceTimer() {
+timer.textContent = `YOU DID IT! CONGRATULATIONS ON FINISHING YOUR ${createdActivities[0].category.toUpperCase()} SESSION!`; 
+timer.classList.add('timer-removed'); }
