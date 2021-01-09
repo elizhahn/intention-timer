@@ -43,30 +43,38 @@ function hide(feature) {
   feature.classList.add("hidden");
 }
 
-//will need to change inputMinutes to createdActivity (obj instance) exstenion
-function displayTimer() {
-  hide(form);
-  display(containerTimer);
+function changeTitle() {
   mainTitle.innerText = "Current Activity"
   timerText.innerText = `${inputActivity.value}`
+}
+
+function displayTime() {
   var time = Number(inputMinutes.value * 60) + Number(inputSeconds.value)
   var minutes = String(Math.trunc(time / 60)).padStart(2, 0);
   var seconds = String(Math.trunc(time % 60)).padStart(2, 0);
   timer.textContent = `${minutes}:${seconds}`
+}
+
+//will need to change inputMinutes to createdActivity (obj instance) exstenion
+function displayTimer() {
+  hide(form);
+  display(containerTimer);
+  changeTitle();
+  displayTime();
   var category;
   for (var i = 0; i < categoryInputs.length; i++){
     if(categoryInputs[i].checked) {
       category = categoryInputs[i].classList;
     }
   }
-    if(category.contains("study-box")) {
-    timerButton.style.borderColor = "#B3FD78";
+  if(category.contains("study-box")) {
+    timerButton.classList.add("study-color");
   }
-    else if(category.contains("meditate-box")) {
-    timerButton.style.borderColor = "#C278FD";
+  else if(category.contains("meditate-box")) {
+    timerButton.classList.add("meditate-color");
   }
-    else {
-    timerButton.style.borderColor = "#FD8078";
+  else {
+    timerButton.classList.add("exercise-color");
  }
 }
 
@@ -93,7 +101,7 @@ function displayActivatedIcon() {
   };
 };
 
-
+//refactor this to take out class list add
 function validateForm() {
   if(currentIcon === undefined) {
     showErrorMessage(0);

@@ -228,9 +228,29 @@ form > * {
   font-size: 1.3em;
 }
 
-.timer-border {
-  border
+.timer-button:focus {
+  outline: none;
 }
+
+.timer-button:hover {
+  background-color: #42454a;
+}
+
+.meditate-color {
+  border-color: #C278FD;
+}
+
+.study-color {
+   border-color: #B3FD78
+}
+
+.exercise-color {
+  border-color: #FD8078;
+}
+
+/* .timer-border {
+  border
+} */
 
 .timer-activity-text {
   font-size: 1em;
