@@ -84,7 +84,6 @@ form > * {
 
 .category-input {
   -webkit-appearance: none;
-
 }
 
  .category-label {
@@ -193,8 +192,9 @@ form > * {
 }
 
 .timer {
+  font-family: 'Montserrat400', sans-serif; font-family;
   font-weight: bold;
-  font-size: 3.2em;
+  font-size: 4em;
 }
 
 .timer-button {
@@ -210,6 +210,12 @@ form > * {
 
 .timer-border {
   border
+}
+
+.timer-activity-text {
+  font-size: 1em;
+  color: #CBC9CF;
+
 }
 
 /* ----------past activities section------ */

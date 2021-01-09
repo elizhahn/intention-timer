@@ -15,6 +15,7 @@ var containerTimer = document.querySelector(".timer-container");
 var timer = document.querySelector(".timer");
 var timerText = document.querySelector(".timer-activity-text");
 var timerButton = document.querySelector(".timer-button");
+var mainTitle = document.querySelector(".main-title")
 var currentIcon;
 var createdActivities = [];
 var inputs = [currentIcon, inputActivity, inputMinutes, inputSeconds];
@@ -42,8 +43,12 @@ function hide(feature) {
 function displayTimer() {
   hide(form);
   display(containerTimer);
+  mainTitle.innerText = "Current Activity"
   timerText.innerText = `${inputActivity.value}`
-  timer.textContent = `${inputMinutes.value} : ${inputSeconds.value}`
+  var time = Number(inputMinutes.value * 60) + Number(inputSeconds.value)
+  var minutes = String(Math.trunc(time / 60)).padStart(2, 0);
+  var seconds = String(Math.trunc(time % 60)).padStart(2, 0);
+  timer.textContent = `${minutes}:${seconds}`
   var category;
   for (var i = 0; i < categoryInputs.length; i++){
     if(categoryInputs[i].checked) {
