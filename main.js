@@ -23,12 +23,12 @@ var inputs = [currentIcon, inputActivity, inputMinutes, inputSeconds];
 
 categoryContainer.addEventListener("click", displayActivatedIcon);
 buttonStartActivity.addEventListener('click', validateForm);
+timerButton.addEventListener('click', startCountdown);
 inputMinutes.addEventListener("keyup", validateNumberMinutes);
 inputSeconds.addEventListener("keyup", validateNumberSeconds);
 form.addEventListener("submit", function() {
   event.preventDefault();
 })
-timerButton.addEventListener('click', startCountdown);
 
 function display(feature) {
   feature.classList.remove("hidden");

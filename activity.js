@@ -10,19 +10,15 @@ class Activity {
   countdown(){
     var time = Number(this.minutes * 60) + Number(this.seconds)
     var decreaseTime = setInterval(function() {
-        var minutes = String(Math.trunc(time / 60)).padStart(2, 0);
-        var seconds = String(Math.trunc(time % 60)).padStart(2, 0);
-     //display complete on the buttonTitles
-     timer.textContent = `${minutes}:${seconds}`;
-
-      //decrease time
-        time--;
-      //clear timer
-
-
-
-      //log activity button displays
-
+      var minutes = String(Math.trunc(time / 60)).padStart(2, 0)
+      var seconds = String(Math.trunc(time % 60)).padStart(2, 0)
+      timer.textContent = `${minutes}:${seconds}`;
+      time--;
+      if(time === -1) {
+        clearInterval(decreaseTime);
+        timerButton.innerText = 'COMPLETE!';
+        alert(`Congratulations on finishing your session!`);
+      }
     }, 1000);
   };
   markComplete(){
