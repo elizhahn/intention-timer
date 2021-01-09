@@ -53,16 +53,20 @@ main {
 
 /* ---------FORM CARD------------- */
 
-form {
+.form-container {
   margin: 0px 20px 30px 20px;
   padding: 40px 80px;
   background-color: #46424D;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+  height: 70%;
+}
+
+form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   border-radius: 3px;
-  height: 70%;
+
 }
 
 form > * {
@@ -185,8 +189,19 @@ form > * {
 
 /* ------------Timer--------------- */
 
+.meditate-color {
+  border-color: #C278FD;
+}
+
+.study-color {
+   border-color: #B3FD78
+}
+
+.exercise-color {
+  border-color: #FD8078;
+}
+
 .timer-container {
-  margin-top: 10px;
   text-align: center;
   font-size: 1.2em;
 }
@@ -227,8 +242,45 @@ form > * {
   text-align: center;
 }
 
-.past-activity-container {
+.default-text-wrapper {
   margin: 40px 40px 0px 40px;
+}
+
+.past-activity-card {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  background-color: #46424D;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+  border-radius: 3px;
+  margin: 0px 20px;
+  padding: 0;
+}
+
+.past-activity {
+  flex: 1;
+  border-right: solid; */
+  border-radius: 3px;
+}
+
+.card {
+  margin: 10px;
+}
+
+.past-activity-category {
+  font-weight: bold;
+  font-size: .8em;
+}
+
+.past-activity-time, .past-activity-description {
+  color: #CBC9CF;
+}
+
+.past-activity-description {
+  margin-top: 10px;
+  flex: 1;
+  font-style: italic;
+  font-size: .9em;
 }
 
 .hidden {
