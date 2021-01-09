@@ -193,8 +193,9 @@ form > * {
 }
 
 .timer {
+  font-family: 'Montserrat400', sans-serif; font-family;
   font-weight: bold;
-  font-size: 3.2em;
+  font-size: 4em;
 }
 
 .timer-button {
