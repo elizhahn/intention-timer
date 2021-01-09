@@ -84,7 +84,6 @@ form > * {
 
 .category-input {
   -webkit-appearance: none;
-
 }
 
  .category-label {
@@ -213,8 +212,8 @@ form > * {
   border
 }
 
-.timer-activity-class {
-  font-size: .8em;
+.timer-activity-text {
+  font-size: 1em;
   color: #CBC9CF;
 
 }
