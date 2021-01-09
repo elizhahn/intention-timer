@@ -155,8 +155,12 @@ form > * {
   display: block;
 }
 
-.activity-user-input-label{
+.activity-user-input-label {
   margin-top: -15px;
+}
+
+.activity-time-input-label {
+margin-top: -15px;
 }
 
 .activity-input {
