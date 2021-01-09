@@ -149,7 +149,7 @@ function checkErrorMessages() {
   }
 }
 
-function replaceTimer() {
+function displayMessage() {
 timer.textContent = `YOU DID IT! CONGRATULATIONS ON FINISHING YOUR ${createdActivities[0].category.toUpperCase()} SESSION!`;
 timer.classList.add('timer-removed');
 display(logActivityButton);

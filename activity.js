@@ -17,7 +17,7 @@ class Activity {
       if(time === -1) {
         clearInterval(decreaseTime);
         timerButton.innerText = 'COMPLETE!';
-        replaceTimer();
+        displayMessage();
       }
     }, 1000);
   };
