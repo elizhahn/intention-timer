@@ -17,7 +17,7 @@ class Activity {
       if(time === -1) {
         clearInterval(decreaseTime);
         timerButton.innerText = 'COMPLETE!';
-        alert(`Congratulations on finishing your session!`);
+        displayMessage();
       }
     }, 1000);
   };

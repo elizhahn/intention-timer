@@ -16,6 +16,7 @@ var containerTimer = document.querySelector(".timer-container");
 var timer = document.querySelector(".timer");
 var timerText = document.querySelector(".timer-activity-text");
 var timerButton = document.querySelector(".timer-button");
+var logActivityButton = document.querySelector('.log-activity');
 var mainTitle = document.querySelector(".main-title")
 var pastActivityCard = document.querySelector(".past-activity-card");
 var pastActivityCardColor = document.querySelector(".past-activity");
@@ -184,4 +185,8 @@ function createCard() {
    }else {
      pastActivityCardColor.classList.add("exercise-color")
    }
+function displayMessage() {
+timer.textContent = `YOU DID IT! CONGRATULATIONS ON FINISHING YOUR ${createdActivities[0].category.toUpperCase()} SESSION!`;
+timer.classList.add('timer-removed');
+display(logActivityButton);
 }
