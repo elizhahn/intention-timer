@@ -102,15 +102,15 @@ form > * {
 }
 
 .category-icon {
-  height: 22px;
-  width: 22px;
+  height: 30px;
+  width: 30px;
   align-self: center;
 }
 
 .button-title {
   align-self: center;
   margin-top: 3px;
-  font-size: .8em;
+  font-size: 1em;
 }
 
 .study-box:checked + label {
