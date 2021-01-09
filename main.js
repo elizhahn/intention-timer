@@ -88,7 +88,7 @@ function displayActivatedIcon() {
 function validateForm() {
   if(currentIcon === undefined) {
     showErrorMessage(0);
-    errorMessages[0].style.marginTop = "0px";
+    errorMessages[0].classList.add('margin-0');
   }
   else if (!checkInputs()) {
     checkInputs();
@@ -114,10 +114,11 @@ function checkInputs() {
 
 function showErrorMessage(index) {
   checkErrorMessages();
-  errorMessages[index].classList.remove('hidden');
-  warningIcons[index].classList.remove('hidden');
+  errorMessages[index].classList.remove('visibility-hidden');
+  warningIcons[index].classList.remove('visibility-hidden');
   if(index > 0) {
-    inputs[index].style.borderColor = "#EFB7EC";
+    console.log(inputs[index])
+    inputs[index].classList.toggle('error-message-color');
   }
 }
 
@@ -127,9 +128,9 @@ function startCountdown() {
 
 function checkErrorMessages() {
   for(var i = 0; i < errorMessages.length; i++) {
-    if(!errorMessages[i].classList.contains('hidden')) {
-      hide(errorMessages[i]);
-      inputs[i].style.borderColor = "#CBC9CF"
+    if(!errorMessages[i].classList.contains('visibility-hidden')) {
+      errorMessages[i].classList.toggle('visibility-hidden');
+      inputs[i].classList.toggle('error-message-color');
     }
   }
 }
