@@ -9,6 +9,7 @@ var inputSeconds = document.getElementById("seconds");
 var buttonStartActivity = document.querySelector(".activity-button");
 var buttonTitles = document.querySelector('.button-title');
 var errorMessages = document.querySelectorAll('.error-message');
+var warningIcons = document.querySelectorAll('.warning-icon');
 var form = document.querySelector("form");
 var containerTimer = document.querySelector(".timer-container");
 var timer = document.querySelector(".timer");
@@ -16,16 +17,18 @@ var timerText = document.querySelector(".timer-activity-text");
 var timerButton = document.querySelector(".timer-button");
 var currentIcon;
 var createdActivities = [];
+var inputs = [currentIcon, inputActivity, inputMinutes, inputSeconds];
+
 
 
 categoryContainer.addEventListener("click", displayActivatedIcon);
 buttonStartActivity.addEventListener('click', validateForm);
+timerButton.addEventListener('click', startCountdown);
 inputMinutes.addEventListener("keyup", validateNumberMinutes);
 inputSeconds.addEventListener("keyup", validateNumberSeconds);
 form.addEventListener("submit", function() {
   event.preventDefault();
 })
-
 
 function display(feature) {
   feature.classList.remove("hidden");
@@ -85,32 +88,49 @@ function displayActivatedIcon() {
 function validateForm() {
   if(currentIcon === undefined) {
     showErrorMessage(0);
+    errorMessages[0].classList.add('margin-0');
   }
   else if (!checkInputs()) {
     checkInputs();
   }
   else {
     var createdActivity = new Activity(currentIcon.id, inputActivity.value, inputMinutes.value, inputSeconds.value);
-    createdActivities.push(createdActivity);
+    createdActivities.unshift(createdActivity);
     //we will need to call this method on the start button listener instead
     //need to take displaly funcitonality and move it
-    createdActivity.countdown();
     displayTimer();
   }
 }
 
 function checkInputs() {
-  var inputs = [inputActivity, inputMinutes, inputSeconds];
-  for(var i = 0; i < inputs.length; i++) {
+  for(var i = 1; i < inputs.length; i++) {
     if(!inputs[i].value) {
-      showErrorMessage(i + 1);
+      showErrorMessage(i);
       return false
     }
   }
   return true;
 }
 
-
 function showErrorMessage(index) {
-  errorMessages[index].classList.remove('hidden');
+  checkErrorMessages();
+  errorMessages[index].classList.remove('visibility-hidden');
+  warningIcons[index].classList.remove('visibility-hidden');
+  if(index > 0) {
+    console.log(inputs[index])
+    inputs[index].classList.toggle('error-message-color');
+  }
+}
+
+function startCountdown() {
+  createdActivities[0].countdown();
+}
+
+function checkErrorMessages() {
+  for(var i = 0; i < errorMessages.length; i++) {
+    if(!errorMessages[i].classList.contains('visibility-hidden')) {
+      errorMessages[i].classList.toggle('visibility-hidden');
+      inputs[i].classList.toggle('error-message-color');
+    }
+  }
 }
