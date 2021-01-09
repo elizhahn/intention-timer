@@ -8,6 +8,7 @@ var inputMinutes = document.getElementById("minutes");
 var inputSeconds = document.getElementById("seconds");
 var buttonStartActivity = document.querySelector(".activity-button");
 var buttonTitles = document.querySelector('.button-title');
+var buttonLogActivity = document.querySelector(".log-activity");
 var errorMessages = document.querySelectorAll('.error-message');
 var warningIcons = document.querySelectorAll('.warning-icon');
 var form = document.querySelector("form");
@@ -16,14 +17,17 @@ var timer = document.querySelector(".timer");
 var timerText = document.querySelector(".timer-activity-text");
 var timerButton = document.querySelector(".timer-button");
 var mainTitle = document.querySelector(".main-title")
+var pastActivityCard = document.querySelector(".past-activity-card");
 var currentIcon;
 var createdActivities = [];
+var createdActivity;
 var inputs = [currentIcon, inputActivity, inputMinutes, inputSeconds];
 
 
 
 categoryContainer.addEventListener("click", displayActivatedIcon);
 buttonStartActivity.addEventListener('click', validateForm);
+buttonLogActivity.addEventListener('click', createCard)
 timerButton.addEventListener('click', startCountdown);
 inputMinutes.addEventListener("keyup", validateNumberMinutes);
 inputSeconds.addEventListener("keyup", validateNumberSeconds);
@@ -99,7 +103,8 @@ function validateForm() {
     checkInputs();
   }
   else {
-    var createdActivity = new Activity(currentIcon.id, inputActivity.value, inputMinutes.value, inputSeconds.value);
+    createdActivity = new Activity(currentIcon.id, inputActivity.value, inputMinutes.value, inputSeconds.value);
+    // var createdActivity = new Activity(currentIcon.id, inputActivity.value, inputMinutes.value, inputSeconds.value);
     createdActivities.unshift(createdActivity);
     //we will need to call this method on the start button listener instead
     //need to take displaly funcitonality and move it
@@ -128,7 +133,8 @@ function showErrorMessage(index) {
 }
 
 function startCountdown() {
-  createdActivities[0].countdown();
+  createdActivity.countdown();
+  // createdActivities[0].countdown();
 }
 
 function checkErrorMessages() {
@@ -138,4 +144,28 @@ function checkErrorMessages() {
       inputs[i].classList.toggle('error-message-color');
     }
   }
+}
+
+// innerHTML to insert
+// <article class="card">
+//   <li class="past-activity">
+//     <p class="past-activity-category">Meditate</p>
+//     <time class="past-activity-time">5 MIN 0 SECONDS</time>
+//  </li>
+//  <li class="past-activity-description">
+//    <p>Deep Breathing</p>
+//  </li>
+// </article>
+
+function createCard() {
+  pastActivityCard.innerHTML =
+  `<article class="card">
+       <li class="past-activity">
+         <p class="past-activity-category">${createdActivity.category}</p>
+         <time class="past-activity-time">${createdActivity.minutes}</time>
+      </li>
+      <li class="past-activity-description">
+        <p>Deep Breathing</p>
+      </li>
+   </article>`
 }
