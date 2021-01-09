@@ -18,6 +18,7 @@ var timerText = document.querySelector(".timer-activity-text");
 var timerButton = document.querySelector(".timer-button");
 var mainTitle = document.querySelector(".main-title")
 var pastActivityCard = document.querySelector(".past-activity-card");
+var pastActivityCardColor = document.querySelector(".past-activity");
 var currentIcon;
 var createdActivities = [];
 var createdActivity;
@@ -168,12 +169,19 @@ function checkErrorMessages() {
 function createCard() {
   pastActivityCard.innerHTML =
   `<article class="card">
-       <li class="past-activity">
+       <li class="past-activity ${cardColor}">
          <p class="past-activity-category">${createdActivity.category}</p>
-         <time class="past-activity-time">${createdActivity.minutes}</time>
+         <time class="past-activity-time">${createdActivity.minutes}MIN ${createdActivity.seconds}SECONDS</time>
       </li>
       <li class="past-activity-description">
-        <p>Deep Breathing</p>
+        <p>${createdActivity.description}</p>
       </li>
    </article>`
+   if(createdActivity.category === "meditate"); {
+     pastActivityCardColor.classList.add("meditate-color");
+   }else if(createdActivity.category === "study"); {
+     pastActivityCardColor.classList.add("study-color");
+   }else {
+     pastActivityCardColor.classList.add("exercise-color")
+   }
 }
