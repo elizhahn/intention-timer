@@ -43,7 +43,11 @@ function displayTimer() {
   hide(form);
   display(containerTimer);
   timerText.innerText = `${inputActivity.value}`
-  timer.textContent = `${inputMinutes.value} : ${inputSeconds.value}`
+  var minutes = Number(inputMinutes.value);
+  var seconds = Number(inputSeconds.value);
+  var minuteString = `${minutes}`.padStart(2, 0);
+  var secondsString = `${seconds}`.padStart(2, 0);
+  timer.textContent = `${minuteString}:${secondsString}`
   var category;
   for (var i = 0; i < categoryInputs.length; i++){
     if(categoryInputs[i].checked) {
