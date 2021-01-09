@@ -58,7 +58,7 @@ main {
   padding: 40px 80px;
   background-color: #46424D;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
-  height: 70%;
+  /* height: 70%; */
 }
 
 form {
@@ -145,7 +145,7 @@ form > * {
 .activity-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   list-style-type: none;
   padding: 0;
 }
@@ -204,6 +204,11 @@ form > * {
 .timer-container {
   text-align: center;
   font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-between; */
+  height: 70%;
 }
 
 .timer {
@@ -232,6 +237,7 @@ form > * {
   color: #CBC9CF;
 
 }
+
 
 /* ----------past activities section------ */
 
