@@ -324,3 +324,10 @@ form > * {
 .error-message-color {
   border-color: #EFB7EC;
 }
+
+.timer-removed {
+  font-size: 1.4em;
+  color: #FFF;
+  font-weight: lighter;
+  font-family: inherit;
+}
