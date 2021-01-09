@@ -10,8 +10,8 @@ class Activity {
   countdown(){
     var time = Number(this.minutes * 60) + Number(this.seconds)
     var decreaseTime = setInterval(function() {
-        var minutes = String(Math.trunc(time / 60)).padStart(2, 0)
-        var seconds = String(Math.trunc(time % 60)).padStart(2, 0)
+        var minutes = String(Math.trunc(time / 60)).padStart(2, 0);
+        var seconds = String(Math.trunc(time % 60)).padStart(2, 0);
      //display complete on the buttonTitles
      timer.textContent = `${minutes}:${seconds}`;
 
