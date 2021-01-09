@@ -155,6 +155,10 @@ form > * {
   display: block;
 }
 
+.activity-user-input-label{
+  margin-top: -15px;
+}
+
 .activity-input {
   background: transparent;
   border: none;
