@@ -213,6 +213,12 @@ form > * {
   border
 }
 
+.timer-activity-class {
+  font-size: .8em;
+  color: #CBC9CF;
+
+}
+
 /* ----------past activities section------ */
 
 .past-activity-default {
