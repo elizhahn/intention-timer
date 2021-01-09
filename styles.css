@@ -53,16 +53,20 @@ main {
 
 /* ---------FORM CARD------------- */
 
-form {
+.form-container {
   margin: 0px 20px 30px 20px;
   padding: 40px 80px;
   background-color: #46424D;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+  height: 70%;
+}
+
+form {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   border-radius: 3px;
-  height: 70%;
+
 }
 
 form > * {
@@ -187,7 +191,6 @@ form > * {
 /* ------------Timer--------------- */
 
 .timer-container {
-  margin-top: 10px;
   text-align: center;
   font-size: 1.2em;
 }
@@ -223,6 +226,27 @@ form > * {
 
 .past-activity-container {
   margin: 40px 40px 0px 40px;
+}
+
+.past-activity-card {
+  list-style-type: none;
+  background-color: #46424D;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+  border-radius: 3px;
+  padding: 0;
+}
+
+.past-activity-category {
+  font-weight: bold;
+}
+
+.past-activity-time, .past-activity-description {
+  color: #CBC9CF;
+}
+
+.past-activity-description {
+  font-style: italic;
+  font-size: .9em;
 }
 
 .hidden {
