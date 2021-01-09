@@ -43,11 +43,10 @@ function displayTimer() {
   hide(form);
   display(containerTimer);
   timerText.innerText = `${inputActivity.value}`
-  var minutes = Number(inputMinutes.value);
-  var seconds = Number(inputSeconds.value);
-  var minuteString = `${minutes}`.padStart(2, 0);
-  var secondsString = `${seconds}`.padStart(2, 0);
-  timer.textContent = `${minuteString}:${secondsString}`
+  var time = Number(inputMinutes.value * 60) + Number(inputSeconds.value)
+  var minutes = String(Math.trunc(time / 60)).padStart(2, 0);
+  var seconds = String(Math.trunc(time % 60)).padStart(2, 0);
+  timer.textContent = `${minutes}:${seconds}`
   var category;
   for (var i = 0; i < categoryInputs.length; i++){
     if(categoryInputs[i].checked) {
