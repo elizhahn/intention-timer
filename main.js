@@ -21,7 +21,7 @@ var mainTitle = document.querySelector(".main-title")
 var pastActivityList = document.querySelector(".past-activity-list");
 var currentIcon;
 var pastActivities = [];
-var createdActivity;
+var currentActivity;
 var inputs = [currentIcon, inputActivity, inputMinutes, inputSeconds];
 
 
@@ -121,7 +121,7 @@ function validateForm() {
     checkInputs();
   }
   else {
-    createdActivity = new Activity(currentIcon.id, inputActivity.value, inputMinutes.value, inputSeconds.value);
+    currentActivity = new Activity(currentIcon.id, inputActivity.value, inputMinutes.value, inputSeconds.value);
     // var createdActivity = new Activity(currentIcon.id, inputActivity.value, inputMinutes.value, inputSeconds.value);
     //we will need to call this method on the start button listener instead
     //need to take displaly funcitonality and move it
@@ -150,7 +150,7 @@ function showErrorMessage(index) {
 }
 
 function startCountdown() {
-  createdActivity.countdown();
+  currentActivity.countdown();
   // createdActivities[0].countdown();
 }
 
@@ -163,47 +163,24 @@ function checkErrorMessages() {
   }
 }
 
-// innerHTML to insert
-// <article class="card">
-//   <li class="past-activity">
-//     <p class="past-activity-category">Meditate</p>
-//     <time class="past-activity-time">5 MIN 0 SECONDS</time>
-//  </li>
-//  <li class="past-activity-description">
-//    <p>Deep Breathing</p>
-//  </li>
-// </article>
 
 function logActivity() {
-  showCard(createdActivity);
+    currentActivity.markComplete();
    var pastActivityCardColor = document.querySelectorAll(".past-activity");
-for (var i = 0; i < pastActivityCardColor.length; i++) {
-   if(createdActivity.category === "meditate") {
-     pastActivityCardColor[i].classList.add("meditate-color");
-   } else if(createdActivity.category === "study") {
-     pastActivityCardColor[i].classList.add("study-color");
-   }else {
-     pastActivityCardColor[i].classList.add("exercise-color")
-   }
+   console.log(pastActivityCardColor); 
+   for (var i = 0; i < pastActivityCardColor.length; i++) {
+     if(currentActivity.category === "meditate") {
+       pastActivityCardColor[i].classList.add("meditate-color");
+     } else if(currentActivity.category === "study") {
+       pastActivityCardColor[i].classList.add("study-color");
+     }else {
+       pastActivityCardColor[i].classList.add("exercise-color")
+     }
  }
    saveCard();
   }
 
-function showCard(activity) {
-  var card = document.createElement("li");
-  pastActivityList.appendChild(card);
-  card.classList.add("past-activity-card");
-  card.innerHTML =
-  `<article class="card">
-    <li class="past-activity">
-      <p class="past-activity-category">${activity.category.charAt(0).toUpperCase() + activity.category.slice(1)}</p>
-        <time class="past-activity-time">${activity.minutes} MIN ${activity.seconds} SECONDS</time>
-    </li>
-    <li class="past-activity-description">
-      <p>${activity.description}</p>
-    </li>
-   </article>`
-  }
+
 
 function showCardMarkerColor() {
     for(i = 0; i < pastActivities.length; i++){
@@ -218,11 +195,11 @@ function showCardMarkerColor() {
   }
 
 function saveCard() {
-    createdActivity.saveToStorage();
+    currentActivity.saveToStorage();
   }
 
 function displayMessage() {
-timer.textContent = `YOU DID IT! CONGRATULATIONS ON FINISHING YOUR ${createdActivity.category.toUpperCase()} SESSION!`;
+timer.textContent = `YOU DID IT! CONGRATULATIONS ON FINISHING YOUR ${currentActivity.category.toUpperCase()} SESSION!`;
 timer.classList.add('timer-removed');
 display(logActivityButton);
 }
