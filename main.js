@@ -175,13 +175,14 @@ function createCard() {
        <li class="past-activity">
          <p class="past-activity-category">${createdActivity.category.charAt(0).toUpperCase() + createdActivity.category.slice(1)}</p>
          <time class="past-activity-time">${createdActivity.minutes} MIN ${createdActivity.seconds} SECONDS</time>
+         <div class="past-activity-color"></div>
       </li>
       <li class="past-activity-description">
         <p>${createdActivity.description}</p>
       </li>
    </article>`
    var pastActivityCardColor = document.querySelector(".past-activity");
-   console.log(pastActivityCardColor); 
+   console.log(pastActivityCardColor);
    if(createdActivity.category === "meditate") {
      pastActivityCardColor.classList.add("meditate-color");
    } else if(createdActivity.category === "study") {
