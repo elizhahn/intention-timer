@@ -316,6 +316,13 @@ margin-top: -15px;
   font-size: .9em;
 }
 
+.past-activity-color {
+  height: 22px;
+  width: 8px;
+  background-color: blue;
+  border-radius: 8px;
+}
+
 .meditate-color {
   border-color: #C278FD;
 }
