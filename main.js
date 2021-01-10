@@ -156,51 +156,22 @@ function checkErrorMessages() {
 
 
 function logActivity() {
-  showCard(currentActivity);
+    currentActivity.markComplete();
    var pastActivityCardColor = document.querySelectorAll(".past-activity");
-for (var i = 0; i < pastActivityCardColor.length; i++) {
-   if(currentActivity.category === "meditate") {
-     pastActivityCardColor[i].classList.add("meditate-color");
-   } else if(currentActivity.category === "study") {
-     pastActivityCardColor[i].classList.add("study-color");
-   }else {
-     pastActivityCardColor[i].classList.add("exercise-color")
-   }
+   console.log(pastActivityCardColor); 
+   for (var i = 0; i < pastActivityCardColor.length; i++) {
+     if(currentActivity.category === "meditate") {
+       pastActivityCardColor[i].classList.add("meditate-color");
+     } else if(currentActivity.category === "study") {
+       pastActivityCardColor[i].classList.add("study-color");
+     }else {
+       pastActivityCardColor[i].classList.add("exercise-color")
+     }
  }
    saveCard();
   }
 
-  function showCard(activity) {
-    var card = document.createElement("li");
-    pastActivityList.appendChild(card);
-    card.classList.add("past-activity-card");
-    card.innerHTML =
-    `<article class="card">
-      <li class="past-activity">
-        <p class="past-activity-category">${activity.category.charAt(0).toUpperCase() + activity.category.slice(1)}</p>
-          <time class="past-activity-time">${activity.minutes} MIN ${activity.seconds} SECONDS</time>
-      </li>
-      <li class="past-activity-description">
-        <p>${activity.description}</p>
-      </li>
-     </article>`
-    }
 
-// function showCard(activity) {
-//   var card = document.createElement("li");
-//   pastActivityList.appendChild(card);
-//   card.classList.add("past-activity-card");
-//   card.innerHTML =
-//   `<article class="card">
-//     <li class="past-activity">
-//       <p class="past-activity-category">${activity.category.charAt(0).toUpperCase() + activity.category.slice(1)}</p>
-//         <time class="past-activity-time">${activity.minutes} MIN ${activity.seconds} SECONDS</time>
-//     </li>
-//     <li class="past-activity-description">
-//       <p>${activity.description}</p>
-//     </li>
-//    </article>`
-//   }
 
 function showCardMarkerColor() {
     for(i = 0; i < pastActivities.length; i++){
