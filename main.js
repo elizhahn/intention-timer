@@ -93,6 +93,7 @@ function validateNumberSeconds(){
 };
 
 function displayActivatedIcon() {
+  checkIcons();
   for(var i = 0; i < categoryInputs.length; i++) {
     if(categoryInputs[i].checked) {
       iconActivated[i].classList.toggle('hidden');
@@ -102,6 +103,14 @@ function displayActivatedIcon() {
   };
 };
 
+function checkIcons() {
+  for (var i = 0; i < iconDeactivated.length; i++) {
+    if(!iconDeactivated[i].classList.contains('hidden')) {
+      hide(iconDeactivated[i]);
+      display(iconActivated[i])
+    }
+  }
+}
 //refactor this to take out class list add
 function validateForm() {
   if(currentIcon === undefined) {
