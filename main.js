@@ -20,15 +20,15 @@ var logActivityButton = document.querySelector('.log-activity');
 var mainTitle = document.querySelector(".main-title")
 var pastActivityList = document.querySelector(".past-activity-list");
 var currentIcon;
-var createdActivities = [];
+var pastActivities = [];
 var createdActivity;
 var inputs = [currentIcon, inputActivity, inputMinutes, inputSeconds];
 
 
-
+window.addEventListener('load', showPastActivities);
 categoryContainer.addEventListener("click", displayActivatedIcon);
 buttonStartActivity.addEventListener('click', validateForm);
-buttonLogActivity.addEventListener('click', createCard)
+buttonLogActivity.addEventListener('click', logActivity)
 timerButton.addEventListener('click', startCountdown);
 inputMinutes.addEventListener("keyup", validateNumberMinutes);
 inputSeconds.addEventListener("keyup", validateNumberSeconds);
@@ -114,7 +114,6 @@ function validateForm() {
   else {
     createdActivity = new Activity(currentIcon.id, inputActivity.value, inputMinutes.value, inputSeconds.value);
     // var createdActivity = new Activity(currentIcon.id, inputActivity.value, inputMinutes.value, inputSeconds.value);
-    createdActivities.unshift(createdActivity);
     //we will need to call this method on the start button listener instead
     //need to take displaly funcitonality and move it
     displayTimer();
@@ -166,22 +165,11 @@ function checkErrorMessages() {
 //  </li>
 // </article>
 
-function createCard() {
-  var card = document.createElement("li");
-  pastActivityList.appendChild(card);
-  card.classList.add("past-activity-card");
-  card.innerHTML =
-  `<article class="card">
-       <li class="past-activity">
-         <p class="past-activity-category">${createdActivity.category.charAt(0).toUpperCase() + createdActivity.category.slice(1)}</p>
-         <time class="past-activity-time">${createdActivity.minutes} MIN ${createdActivity.seconds} SECONDS</time>
-      </li>
-      <li class="past-activity-description">
-        <p>${createdActivity.description}</p>
-      </li>
-   </article>`
+function logActivity() {
+
+  showCard(createdActivity);
    var pastActivityCardColor = document.querySelector(".past-activity");
-   console.log(pastActivityCardColor); 
+   console.log(pastActivityCardColor);
    if(createdActivity.category === "meditate") {
      pastActivityCardColor.classList.add("meditate-color");
    } else if(createdActivity.category === "study") {
@@ -192,7 +180,36 @@ function createCard() {
   }
 
 function displayMessage() {
-timer.textContent = `YOU DID IT! CONGRATULATIONS ON FINISHING YOUR ${createdActivities[0].category.toUpperCase()} SESSION!`;
+timer.textContent = `YOU DID IT! CONGRATULATIONS ON FINISHING YOUR ${createdActivity.category.toUpperCase()} SESSION!`;
 timer.classList.add('timer-removed');
 display(logActivityButton);
+}
+
+function showCard(activityInst) {
+  var card = document.createElement("li");
+  pastActivityList.appendChild(card);
+  card.classList.add("past-activity-card");
+  pastActivities.push(activityInst);
+  JSON.stringify(pastActivities);
+  console.log(pastActivities)
+  window.localStorage.setItem('cardList', pastActivities);
+  card.innerHTML =
+  `<article class="card">
+       <li class="past-activity">
+         <p class="past-activity-category">${activityInst.category.charAt(0).toUpperCase() + activityInst.category.slice(1)}</p>
+         <time class="past-activity-time">${activityInst.minutes} MIN ${activityInst.seconds} SECONDS</time>
+      </li>
+      <li class="past-activity-description">
+        <p>${activityInst.description}</p>
+      </li>
+   </article>`
+}
+
+function showPastActivities() {
+  var savedData = localStorage.getItem('cardList');
+  JSON.stringify(savedData);
+  console.log(savedData);
+  for(var i = 0; i < retrievedList.length; i++) {
+
+  }
 }
