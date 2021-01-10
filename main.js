@@ -69,13 +69,13 @@ function displayTimer() {
     }
   }
   if(category.contains("study-box")) {
-    timerButton.classList.add("study-color");
+    timerButton.classList.add("timer-study-color");
   }
   else if(category.contains("meditate-box")) {
-    timerButton.classList.add("meditate-color");
+    timerButton.classList.add("timer-meditate-color");
   }
   else {
-    timerButton.classList.add("exercise-color");
+    timerButton.classList.add("timer-exercise-color");
  }
 }
 
@@ -162,14 +162,15 @@ function logActivity() {
   }
 
 function showCardMarkerColor() {
-  var pastActivityCardColor = document.querySelectorAll(".past-activity");
+  var pastActivityCardColor = document.querySelectorAll(".color-icon");
+  console.log(pastActivityCardColor); 
     for(i = 0; i < pastActivities.length; i++){
     if(pastActivities[i].category === "meditate") {
-      pastActivityCardColor[i].classList.add("meditate-color");
+      pastActivityCardColor[i].classList.add("card-meditate-color");
     } else if(pastActivities[i].category === "study") {
-      pastActivityCardColor[i].classList.add("study-color");
+      pastActivityCardColor[i].classList.add("card-study-color");
     } else {
-      pastActivityCardColor[i].classList.add("exercise-color");      }
+      pastActivityCardColor[i].classList.add("card-exercise-color");      }
    }
   }
 
