@@ -17,6 +17,7 @@ var timer = document.querySelector(".timer");
 var timerText = document.querySelector(".timer-activity-text");
 var timerButton = document.querySelector(".timer-button");
 var logActivityButton = document.querySelector('.log-activity');
+var createNewActivity = document.querySelector('.create-new-activity');
 var mainTitle = document.querySelector(".main-title")
 var pastActivityList = document.querySelector(".past-activity-list");
 var currentIcon;
@@ -30,6 +31,7 @@ categoryContainer.addEventListener("click", displayActivatedIcon);
 buttonStartActivity.addEventListener('click', validateForm);
 buttonLogActivity.addEventListener('click', logActivity)
 timerButton.addEventListener('click', startCountdown);
+createNewActivity.addEventListener('click', goHome);
 inputMinutes.addEventListener("keyup", validateNumberMinutes);
 inputSeconds.addEventListener("keyup", validateNumberSeconds);
 form.addEventListener("submit", function() {
@@ -122,9 +124,6 @@ function validateForm() {
   }
   else {
     currentActivity = new Activity(currentIcon.id, inputActivity.value, inputMinutes.value, inputSeconds.value);
-    // var createdActivity = new Activity(currentIcon.id, inputActivity.value, inputMinutes.value, inputSeconds.value);
-    //we will need to call this method on the start button listener instead
-    //need to take displaly funcitonality and move it
     displayTimer();
   }
 }
@@ -178,9 +177,39 @@ function logActivity() {
      }
  }
    saveCard();
+   clearTimerSection();
   }
 
-
+  function clearTimerSection() {
+    hide(containerTimer);
+    display(createNewActivity);
+    mainTitle.innerText = 'Completed Activity';
+  }
+  function goHome() {
+    hide(createNewActivity);
+    hide(containerTimer);
+    display(form);
+    for(var i = 0; i < inputs.length; i++) {
+      if(i > 0) {
+        clearInputs();
+      } else {
+        clearCategory();
+      }
+    };
+  }
+  function clearCategory() {
+    for(var i = 0; i < categoryInputs.length; i++) {
+      if(categoryInputs[i].checked) {
+        categoryInputs[i].checked = false;
+        checkIcons();
+      }
+    }
+  }
+  function clearInputs() {
+    for(var i = 0; i < 3; i++) {
+      inputs[i + 1].value = "";
+    }
+  }
 
 function showCardMarkerColor() {
     for(i = 0; i < pastActivities.length; i++){

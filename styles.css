@@ -261,6 +261,18 @@ margin-top: -15px;
   font-size: 1em;
 }
 
+/* Create new activity button */
+
+.create-new-activity {
+  padding: 7px 20px;
+  width: 50%;
+  height: 6%;
+  border-radius: 5px;
+  border: 0;
+  margin: 8% 30% 65% 25%;
+  font-size: 1.2em;
+  text-align: center;
+}
 
 /* ----------past activities section------ */
 
