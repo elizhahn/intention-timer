@@ -167,15 +167,16 @@ function checkErrorMessages() {
 
 function logActivity() {
   showCard(createdActivity);
-   var pastActivityCardColor = document.querySelector(".past-activity");
-   console.log(pastActivityCardColor);
+   var pastActivityCardColor = document.querySelectorAll(".past-activity");
+for (var i = 0; i < pastActivityCardColor.length; i++) {
    if(createdActivity.category === "meditate") {
-     pastActivityCardColor.classList.add("meditate-color");
+     pastActivityCardColor[i].classList.add("meditate-color");
    } else if(createdActivity.category === "study") {
-     pastActivityCardColor.classList.add("study-color");
+     pastActivityCardColor[i].classList.add("study-color");
    }else {
-     pastActivityCardColor.classList.add("exercise-color")
+     pastActivityCardColor[i].classList.add("exercise-color")
    }
+ }
    saveCard();
   }
 
