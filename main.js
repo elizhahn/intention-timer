@@ -18,8 +18,7 @@ var timerText = document.querySelector(".timer-activity-text");
 var timerButton = document.querySelector(".timer-button");
 var logActivityButton = document.querySelector('.log-activity');
 var mainTitle = document.querySelector(".main-title")
-var pastActivityCard = document.querySelector(".past-activity-card");
-var pastActivityCardColor = document.querySelector(".past-activity");
+var pastActivityList = document.querySelector(".past-activity-list");
 var currentIcon;
 var createdActivities = [];
 var createdActivity;
@@ -168,23 +167,30 @@ function checkErrorMessages() {
 // </article>
 
 function createCard() {
-  pastActivityCard.innerHTML =
+  var card = document.createElement("li");
+  pastActivityList.appendChild(card);
+  card.classList.add("past-activity-card");
+  card.innerHTML =
   `<article class="card">
-       <li class="past-activity ${cardColor}">
-         <p class="past-activity-category">${createdActivity.category}</p>
-         <time class="past-activity-time">${createdActivity.minutes}MIN ${createdActivity.seconds}SECONDS</time>
+       <li class="past-activity">
+         <p class="past-activity-category">${createdActivity.category.charAt(0).toUpperCase() + createdActivity.category.slice(1)}</p>
+         <time class="past-activity-time">${createdActivity.minutes} MIN ${createdActivity.seconds} SECONDS</time>
       </li>
       <li class="past-activity-description">
         <p>${createdActivity.description}</p>
       </li>
    </article>`
-   if(createdActivity.category === "meditate"); {
+   var pastActivityCardColor = document.querySelector(".past-activity");
+   console.log(pastActivityCardColor); 
+   if(createdActivity.category === "meditate") {
      pastActivityCardColor.classList.add("meditate-color");
-   }else if(createdActivity.category === "study"); {
+   } else if(createdActivity.category === "study") {
      pastActivityCardColor.classList.add("study-color");
    }else {
      pastActivityCardColor.classList.add("exercise-color")
    }
+  }
+
 function displayMessage() {
 timer.textContent = `YOU DID IT! CONGRATULATIONS ON FINISHING YOUR ${createdActivities[0].category.toUpperCase()} SESSION!`;
 timer.classList.add('timer-removed');
