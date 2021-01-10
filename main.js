@@ -93,7 +93,6 @@ function validateNumberSeconds(){
 };
 
 function displayActivatedIcon() {
-  checkIcons();
   for(var i = 0; i < categoryInputs.length; i++) {
     if(categoryInputs[i].checked) {
       iconActivated[i].classList.toggle('hidden');
@@ -103,14 +102,6 @@ function displayActivatedIcon() {
   };
 };
 
-function checkIcons() {
-  for (var i = 0; i < iconDeactivated.length; i++) {
-    if(!iconDeactivated[i].classList.contains('hidden')) {
-      hide(iconDeactivated[i]);
-      display(iconActivated[i])
-    }
-  }
-}
 //refactor this to take out class list add
 function validateForm() {
   if(currentIcon === undefined) {
@@ -163,28 +154,16 @@ function checkErrorMessages() {
   }
 }
 
-
 function logActivity() {
-    currentActivity.markComplete();
-   var pastActivityCardColor = document.querySelectorAll(".past-activity");
-   console.log(pastActivityCardColor); 
-   for (var i = 0; i < pastActivityCardColor.length; i++) {
-     if(currentActivity.category === "meditate") {
-       pastActivityCardColor[i].classList.add("meditate-color");
-     } else if(currentActivity.category === "study") {
-       pastActivityCardColor[i].classList.add("study-color");
-     }else {
-       pastActivityCardColor[i].classList.add("exercise-color")
-     }
- }
-   saveCard();
+  currentActivity.saveToStorage();
+  currentActivity.markComplete();
+  listPastCards(); 
+  showCardMarkerColor();
   }
 
-
-
 function showCardMarkerColor() {
+  var pastActivityCardColor = document.querySelectorAll(".past-activity");
     for(i = 0; i < pastActivities.length; i++){
-    var pastActivityCardColor = document.querySelectorAll(".past-activity");
     if(pastActivities[i].category === "meditate") {
       pastActivityCardColor[i].classList.add("meditate-color");
     } else if(pastActivities[i].category === "study") {
@@ -192,10 +171,6 @@ function showCardMarkerColor() {
     } else {
       pastActivityCardColor[i].classList.add("exercise-color");      }
    }
-  }
-
-function saveCard() {
-    currentActivity.saveToStorage();
   }
 
 function displayMessage() {
