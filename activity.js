@@ -25,6 +25,14 @@ class Activity {
     console.log();
   };
   saveToStorage(){
-    console.log();
+    var savedActivity = JSON.stringify(this);
+        if(localStorage.length === 0) {
+          var key = "storage " + 0
+          localStorage.setItem(key, savedActivity);
+        } else {
+          var key = "storage " + localStorage.length;
+          localStorage.setItem(key, savedActivity);
+        }
+      };
   };
 }
