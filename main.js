@@ -178,9 +178,39 @@ function logActivity() {
      }
  }
    saveCard();
+   clearTimerSection();
   }
 
-
+  function clearTimerSection() {
+    containerTimer.innerHTML = `<button class="create-new-activity">CREATE A NEW ACTIVITY</button>`;
+    mainTitle.innerText = 'Completed Activity';
+    var createNewActivity = document.querySelector('.create-new-activity');
+    createNewActivity.addEventListener('click', goHome);
+  }
+  function goHome() {
+    hide(containerTimer);
+    display(form);
+    for(var i = 0; i < inputs.length; i++) {
+      if(i > 0) {
+        clearInputs();
+      } else {
+        clearCategory();
+      }
+    }
+  }
+  function clearCategory() {
+    for(var i = 0; i < categoryInputs.length; i++) {
+      if(categoryInputs[i].checked) {
+        categoryInputs[i].checked = false;
+        checkIcons();
+      }
+    }
+  }
+  function clearInputs() {
+    for(var i = 0; i < 3; i++) {
+      inputs[i + 1].value = "";
+    }
+  }
 
 function showCardMarkerColor() {
     for(i = 0; i < pastActivities.length; i++){
