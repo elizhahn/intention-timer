@@ -62,7 +62,6 @@ function displayTime() {
 function displayTimer() {
   hide(form);
   display(containerTimer);
-  console.log(containerTimer.innerHTML);
   changeTitle();
   displayTime();
   var category;
@@ -125,10 +124,6 @@ function validateForm() {
   }
   else {
     currentActivity = new Activity(currentIcon.id, inputActivity.value, inputMinutes.value, inputSeconds.value);
-    // var createdActivity = new Activity(currentIcon.id, inputActivity.value, inputMinutes.value, inputSeconds.value);
-    //we will need to call this method on the start button listener instead
-    //need to take displaly funcitonality and move it
-    console.log(currentActivity);
     displayTimer();
   }
 }
