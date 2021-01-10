@@ -22,7 +22,19 @@ class Activity {
     }, 1000);
   };
   markComplete(){
-    console.log();
+    var card = document.createElement("li");
+    pastActivityList.appendChild(card);
+    card.classList.add("past-activity-card");
+    card.innerHTML =
+    `<article class="card">
+      <li class="past-activity">
+        <p class="past-activity-category">${this.category.charAt(0).toUpperCase() + this.category.slice(1)}</p>
+          <time class="past-activity-time">${this.minutes} MIN ${this.seconds} SECONDS</time>
+      </li>
+      <li class="past-activity-description">
+        <p>${this.description}</p>
+      </li>
+     </article>`
   };
   saveToStorage(){
     var savedActivity = JSON.stringify(this);
@@ -35,4 +47,3 @@ class Activity {
         }
       };
   };
-}
