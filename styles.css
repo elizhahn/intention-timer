@@ -292,8 +292,9 @@ margin-top: -15px;
 
 .past-activity {
   flex: 1;
-  border-right: solid;
-  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: -10px;
 }
 
 .card {
@@ -304,10 +305,20 @@ margin-top: -15px;
   font-family: 'Montserrat400', sans-serif;
   font-weight: bold;
   font-size: .9em;
+  align-self: flex-start;
 }
 
 .past-activity-time, .past-activity-description {
   color: #CBC9CF;
+}
+
+.color-icon{
+  background-color: white;
+  height: 30px;
+  width: 5px;
+  border-radius: 5px;
+  align-self: flex-end;
+  margin-left: auto;
 }
 
 .past-activity-description {

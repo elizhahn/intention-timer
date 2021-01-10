@@ -157,7 +157,7 @@ function checkErrorMessages() {
 function logActivity() {
   currentActivity.saveToStorage();
   currentActivity.markComplete();
-  listPastCards(); 
+  listPastCards();
   showCardMarkerColor();
   }
 
@@ -197,8 +197,9 @@ function showPastActivityCards() {
     `<article class="card">
          <li class="past-activity">
            <p class="past-activity-category">${pastActivities[i].category.charAt(0).toUpperCase() + pastActivities[i].category.slice(1)}</p>
-           <time class="past-activity-time">${pastActivities[i].minutes} MIN ${pastActivities[i].seconds} SECONDS</time>
+           <div class="color-icon"></div>
         </li>
+        <time class="past-activity-time">${pastActivities[i].minutes} MIN ${pastActivities[i].seconds} SECONDS</time>
         <li class="past-activity-description">
           <p>${pastActivities[i].description}</p>
         </li>
