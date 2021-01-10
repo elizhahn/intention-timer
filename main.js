@@ -25,7 +25,7 @@ var createdActivity;
 var inputs = [currentIcon, inputActivity, inputMinutes, inputSeconds];
 
 
-window.addEventListener('load', showPastActivities);
+window.addEventListener('load', showPastActivityCards);
 categoryContainer.addEventListener("click", displayActivatedIcon);
 buttonStartActivity.addEventListener('click', validateForm);
 buttonLogActivity.addEventListener('click', logActivity)
@@ -34,7 +34,7 @@ inputMinutes.addEventListener("keyup", validateNumberMinutes);
 inputSeconds.addEventListener("keyup", validateNumberSeconds);
 form.addEventListener("submit", function() {
   event.preventDefault();
-})
+});
 
 function display(feature) {
   feature.classList.remove("hidden");
@@ -166,7 +166,6 @@ function checkErrorMessages() {
 // </article>
 
 function logActivity() {
-
   showCard(createdActivity);
    var pastActivityCardColor = document.querySelector(".past-activity");
    console.log(pastActivityCardColor);
@@ -177,6 +176,39 @@ function logActivity() {
    }else {
      pastActivityCardColor.classList.add("exercise-color")
    }
+   saveCard();
+  }
+
+function showCard(activity) {
+  var card = document.createElement("li");
+  pastActivityList.appendChild(card);
+  card.classList.add("past-activity-card");
+  card.innerHTML =
+  `<article class="card">
+    <li class="past-activity">
+      <p class="past-activity-category">${activity.category.charAt(0).toUpperCase() + activity.category.slice(1)}</p>
+        <time class="past-activity-time">${activity.minutes} MIN ${activity.seconds} SECONDS</time>
+    </li>
+    <li class="past-activity-description">
+      <p>${activity.description}</p>
+    </li>
+   </article>`
+  }
+
+function showCardMarkerColor() {
+    for(i = 0; i < pastActivities.length; i++){
+    var pastActivityCardColor = document.querySelectorAll(".past-activity");
+    if(pastActivities[i].category === "meditate") {
+      pastActivityCardColor[i].classList.add("meditate-color");
+    } else if(pastActivities[i].category === "study") {
+      pastActivityCardColor[i].classList.add("study-color");
+    } else {
+      pastActivityCardColor[i].classList.add("exercise-color");      }
+   }
+  }
+
+function saveCard() {
+    createdActivity.saveToStorage();
   }
 
 function displayMessage() {
@@ -185,31 +217,30 @@ timer.classList.add('timer-removed');
 display(logActivityButton);
 }
 
-function showCard(activityInst) {
-  var card = document.createElement("li");
-  pastActivityList.appendChild(card);
-  card.classList.add("past-activity-card");
-  pastActivities.push(activityInst);
-  JSON.stringify(pastActivities);
-  console.log(pastActivities)
-  window.localStorage.setItem('cardList', pastActivities);
-  card.innerHTML =
-  `<article class="card">
-       <li class="past-activity">
-         <p class="past-activity-category">${activityInst.category.charAt(0).toUpperCase() + activityInst.category.slice(1)}</p>
-         <time class="past-activity-time">${activityInst.minutes} MIN ${activityInst.seconds} SECONDS</time>
-      </li>
-      <li class="past-activity-description">
-        <p>${activityInst.description}</p>
-      </li>
-   </article>`
-}
-
-function showPastActivities() {
-  var savedData = localStorage.getItem('cardList');
-  JSON.stringify(savedData);
-  console.log(savedData);
-  for(var i = 0; i < retrievedList.length; i++) {
-
+function listPastCards() {
+  for(var i = 0; i < localStorage.length; i++) {
+    var saved = localStorage.getItem("storage " + i);
+    saved = JSON.parse(saved);
+    pastActivities.push(saved);
   }
 }
+
+function showPastActivityCards() {
+  listPastCards();
+  for(var i = 0; i < localStorage.length; i++) {
+    var card = document.createElement("li");
+    pastActivityList.appendChild(card);
+    card.classList.add("past-activity-card");
+    card.innerHTML =
+    `<article class="card">
+         <li class="past-activity">
+           <p class="past-activity-category">${pastActivities[i].category.charAt(0).toUpperCase() + pastActivities[i].category.slice(1)}</p>
+           <time class="past-activity-time">${pastActivities[i].minutes} MIN ${pastActivities[i].seconds} SECONDS</time>
+        </li>
+        <li class="past-activity-description">
+          <p>${pastActivities[i].description}</p>
+        </li>
+     </article>`
+  }
+  showCardMarkerColor();
+ }
