@@ -246,26 +246,9 @@ margin-top: -15px;
   background-color: #42454a;
 }
 
-.meditate-color {
-  border-color: #C278FD;
-}
-
-.study-color {
-   border-color: #B3FD78
-}
-
-.exercise-color {
-  border-color: #FD8078;
-}
-
-/* .timer-border {
-  border
-} */
-
 .timer-activity-text {
   font-size: 1.1em;
   color: #CBC9CF;
-
 }
 
 .log-activity {
@@ -292,6 +275,10 @@ margin-top: -15px;
   margin: 40px 40px 0px 40px;
 }
 
+.past-activity-list {
+  padding: 0;
+}
+
 .past-activity-card {
   display: flex;
   flex-direction: column;
@@ -299,13 +286,13 @@ margin-top: -15px;
   background-color: #46424D;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
   border-radius: 3px;
-  margin: 0px 20px;
+  margin: 20px 20px;
   padding: 0;
 }
 
 .past-activity {
   flex: 1;
-  border-right: solid; */
+  border-right: solid;
   border-radius: 3px;
 }
 
@@ -314,8 +301,9 @@ margin-top: -15px;
 }
 
 .past-activity-category {
+  font-family: 'Montserrat400', sans-serif;
   font-weight: bold;
-  font-size: .8em;
+  font-size: .9em;
 }
 
 .past-activity-time, .past-activity-description {
@@ -325,8 +313,19 @@ margin-top: -15px;
 .past-activity-description {
   margin-top: 10px;
   flex: 1;
-  font-style: italic;
   font-size: .9em;
+}
+
+.meditate-color {
+  border-color: #C278FD;
+}
+
+.study-color {
+   border-color: #B3FD78
+}
+
+.exercise-color {
+  border-color: #FD8078;
 }
 
 .hidden {
