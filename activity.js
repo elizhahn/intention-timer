@@ -12,6 +12,7 @@ class Activity {
     if(this.timerRunning == true){
       return;
     }
+    this.timerRunning = true;
     var time = Number(this.minutes * 60) + Number(this.seconds)
     var decreaseTime = setInterval(function() {
       var minutes = String(Math.trunc(time / 60)).padStart(2, 0)
