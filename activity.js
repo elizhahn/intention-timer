@@ -27,15 +27,19 @@ class Activity {
     card.classList.add("past-activity-card");
     card.innerHTML =
     `<article class="card">
-      <li class="past-activity">
-        <p class="past-activity-category">${this.category.charAt(0).toUpperCase() + this.category.slice(1)}</p>
-          <time class="past-activity-time">${this.minutes} MIN ${this.seconds} SECONDS</time>
-      </li>
-      <li class="past-activity-description">
-        <p>${this.description}</p>
-      </li>
+         <li class="past-activity">
+           <p class="past-activity-category">${this.category.charAt(0).toUpperCase() + this.category.slice(1)}</p>
+           <div class="color-icon"></div>
+        </li>
+        <time class="past-activity-time">${this.minutes} MIN ${this.seconds} SECONDS</time>
+        <li class="past-activity-description">
+          <p>${this.description}</p>
+        </li>
      </article>`
-  };
+     pastActivities.push(this);
+     showCardMarkerColor();
+    }
+
   saveToStorage(){
     var savedActivity = JSON.stringify(this);
         if(localStorage.length === 0) {
