@@ -10,11 +10,14 @@ class Activity {
   countdown(){
     var time = Number(this.minutes * 60) + Number(this.seconds)
     time--;
+    var minutes = String(Math.trunc(time / 60)).padStart(2, 0)
+    var seconds = String(Math.trunc(time % 60)).padStart(2, 0)
+    timer.textContent = `${minutes}:${seconds}`;
     var decreaseTime = setInterval(function() {
+      time--;
       var minutes = String(Math.trunc(time / 60)).padStart(2, 0)
       var seconds = String(Math.trunc(time % 60)).padStart(2, 0)
       timer.textContent = `${minutes}:${seconds}`;
-      time--;
       if(time === -1) {
         clearInterval(decreaseTime);
         timerButton.innerText = 'COMPLETE!';
