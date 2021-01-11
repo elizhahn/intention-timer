@@ -104,6 +104,14 @@ function displayActivatedIcon() {
   };
 };
 
+function checkIcons() {
+  for (var i = 0; i < iconDeactivated.length; i++) {
+    if(!iconDeactivated[i].classList.contains('hidden')) {
+      hide(iconDeactivated[i]);
+      display(iconActivated[i])
+    }
+  }
+}
 //refactor this to take out class list add
 function validateForm() {
   if(currentIcon === undefined) {
