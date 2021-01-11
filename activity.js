@@ -12,8 +12,9 @@ class Activity {
     if(this.timerRunning == true) {
       return;
     }
-    this.timerRunning = true;
     var time = Number(this.minutes * 60) + Number(this.seconds);
+      if(time > 1) {
+    this.timerRunning = true;
     time--;
     var minutes = String(Math.trunc(time / 60)).padStart(2, 0);
     var seconds = String(Math.trunc(time % 60)).padStart(2, 0);
@@ -26,10 +27,13 @@ class Activity {
       if(time === -1) {
         clearInterval(decreaseTime);
         this.timerRunning = false;
-        timerButton.innerText = 'COMPLETE!';
         displayMessage();
-      };
+      }
     }, 1000);
+  } else {
+  timerButton.innerText = 'COMPLETE!'
+  displayMessage();
+  };
   };
   markComplete() {
     var card = document.createElement("li");
