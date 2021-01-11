@@ -18,7 +18,7 @@
               <label class="category-label" for="study">
                 <img class="category-icon activated" src="assets/study.svg" alt="light bulb">
                 <img class="category-icon hidden deactivated" src="assets/study-active.svg" alt="light bulb">
-                <p class="button-title">Study</p>
+                <p class="category-button-title">Study</p>
               </label>
             </li>
             <li>
@@ -26,7 +26,7 @@
               <label class="category-label"for="meditate">
                 <img class="category-icon activated" src="assets/meditate.svg" alt="lotus flower">
                 <img class="category-icon hidden deactivated" src="assets/meditate-active.svg" alt="lotus flower">
-                <p class="button-title">Meditate</p>
+                <p class="category-button-title">Meditate</p>
               </label>
             </li>
             <li>
@@ -34,7 +34,7 @@
               <label class="category-label"for="exercise">
                 <img class="category-icon activated" src="assets/exercise.svg" alt="tennis shoe">
                 <img class="category-icon hidden deactivated" src="assets/exercise-active.svg" alt="tennis shoe">
-                <p class="button-title">Exercise</p>
+                <p class="category-button-title">Exercise</p>
               </label>
             </li>
            </ul>
@@ -42,18 +42,18 @@
            <span> <img class="warning-icon visibility-hidden" src="assets/warning.svg" alt="error icon"></span>A category is required.</label>
            <ul class="activity-container">
             <li>
-              <label class="activity-input-label activity-text-input-label">What would you like to accomplish during this time?</label>
+              <label class="activity-input-label">What would you like to accomplish during this time?</label>
               <input class="activity-input" type="text" id="activity" autocomplete="off">
               <label class="error-message visibility-hidden" for"activity">
               <span> <img class="warning-icon visibility-hidden" src="assets/warning.svg" alt="error icon"></span>A description is required.</label>
             </li>
             <div class="activity-list-container">
               <li class="activity-list">
-                <label class="activity-input-label activity-time-input-label">Minutes</label>
+                <label class="activity-input-label">Minutes</label>
                 <input class="activity-input" type="text" id="minutes" autocomplete="off">
                 <label class="error-message visibility-hidden" for="minutes"><span> <img class="warning-icon visibility-hidden" src="assets/warning.svg" alt="error icon"></span>A time limit is required.</label>
               <li class="activity-list">
-                <label class="activity-input-label activity-time-input-label">Seconds</label>
+                <label class="activity-input-label">Seconds</label>
                 <input class="activity-input" type="text" id="seconds" autocomplete="off">
                 <label class="error-message visibility-hidden" for="seconds"> <span> <img class="warning-icon visibility-hidden" src="assets/warning.svg" alt="error icon"></span>A time limit is required.</label>
               </li>
@@ -64,7 +64,7 @@
             <p class="timer-activity-text"></p>
             <h1 class="timer"></h1>
             <button class="timer-button">START</button>
-            <button class="log-activity activity button hidden">LOG ACTIVITY</button>
+            <button class="log-activity-button hidden">LOG ACTIVITY</button>
           </section>
           <button class="create-new-activity hidden">CREATE A NEW ACTIVITY</button>
         </section>
