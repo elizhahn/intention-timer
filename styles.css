@@ -196,17 +196,6 @@ margin-top: -15px;
 
 /* ------------Timer--------------- */
 
-.meditate-color {
-  border-color: #C278FD;
-}
-
-.study-color {
-   border-color: #B3FD78
-}
-
-.exercise-color {
-  border-color: #FD8078;
-}
 
 .timer-container {
   text-align: center;
@@ -257,6 +246,12 @@ margin-top: -15px;
   font-size: 1em;
 }
 
+.timer-removed {
+  font-size: 1.4em;
+  color: #FFF;
+  font-weight: lighter;
+  font-family: inherit;
+}
 /* Create new activity button */
 
 .create-new-activity {
@@ -335,7 +330,7 @@ margin-top: -15px;
   font-size: .9em;
 }
 
-/* -------timer border color---------------- */
+/* -------SINGLE PROP COLOR CLASSES---------------- */
 
 .timer-study-color {
    border-color: #B3FD78;
@@ -349,7 +344,9 @@ margin-top: -15px;
   border-color: #FD8078;
 }
 
-/* ----------card icon color---------------- */
+.error-message-color {
+  border-color: #EFB7EC;
+}
 
 .card-study-color {
   background-color: #B3FD78;
@@ -362,6 +359,7 @@ margin-top: -15px;
 .card-exercise-color {
   background-color: #FD8078;
 }
+/*-------------HIDDEN------------- */
 
 .hidden {
   display: none;
@@ -369,19 +367,4 @@ margin-top: -15px;
 
 .visibility-hidden {
   visibility: hidden;
-}
-
-.margin-0 {
-  margin-top: 0;
-}
-
-.error-message-color {
-  border-color: #EFB7EC;
-}
-
-.timer-removed {
-  font-size: 1.4em;
-  color: #FFF;
-  font-weight: lighter;
-  font-family: inherit;
 }
