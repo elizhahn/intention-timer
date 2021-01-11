@@ -6,8 +6,13 @@ class Activity {
     this.seconds = seconds;
     this.completed = completed;
     this.id = id;
+    this.timeRunning = false;
   };
   countdown(){
+    if (this.timerRunning == true){
+      return;
+    }
+    this.timerRunning = true
     var time = Number(this.minutes * 60) + Number(this.seconds)
     time--;
     var minutes = String(Math.trunc(time / 60)).padStart(2, 0)
@@ -20,6 +25,7 @@ class Activity {
       timer.textContent = `${minutes}:${seconds}`;
       if(time === -1) {
         clearInterval(decreaseTime);
+        this.timeRunning = false;
         timerButton.innerText = 'COMPLETE!';
         displayMessage();
       }
