@@ -142,7 +142,6 @@ function showErrorMessage(index) {
 
 function startCountdown() {
   currentActivity.countdown();
-  // createdActivities[0].countdown();
 }
 
 function checkErrorMessages() {
@@ -161,8 +160,6 @@ function logActivity() {
 
 function showCardMarkerColor() {
   var pastActivityCardColor = document.querySelectorAll(".color-icon");
-  console.log(pastActivityCardColor);
-  console.log(pastActivities); 
     for(i = 0; i < pastActivities.length; i++){
     if(pastActivities[i].category === "meditate") {
       pastActivityCardColor[i].classList.add("card-meditate-color");
@@ -189,7 +186,6 @@ function listPastCards() {
 
 function showPastActivityCards() {
    listPastCards();
-  console.log(pastActivities);
   for(var i = 0; i < localStorage.length; i++) {
     var card = document.createElement("li");
     pastActivityList.appendChild(card);
