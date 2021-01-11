@@ -1,18 +1,7 @@
-/* Main background: #2B2733
-Text on main background: #CBC9CF
-Header, cards: #46424D
-Card shadow: #26222D
-Text on header and cards: #FFF
-Study: #B3FD78
-Meditate: #C278FD
-Exercise: #FD8078
-Error: #EFB7EC */
-
 
 * {
 margin: 0;
 font-family: 'Montserrat', sans-serif;
-/* font-size: 20px; */
 }
 
 body {
@@ -59,7 +48,6 @@ main {
   padding: 25px 80px;
   background-color: #46424D;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
-  /* height: 70%; */
 }
 
 form {
@@ -74,10 +62,25 @@ form > * {
   margin: 20px;
 }
 
- h2 {
+h2 {
    font-size: 1em;
    margin-bottom: 20px;
 }
+
+.error-message {
+  color: #EFB7EC;
+  font-size: 1em;
+  margin-top: 10px;
+  visibility: none;
+}
+
+.warning-icon {
+  height: .9em;
+  width: .9em;
+  margin: 10px 3px 0px 0px;
+}
+
+/* -------------CATEGORY BUTTONS------------- */
 
 .category-container {
   display: flex;
@@ -91,14 +94,14 @@ form > * {
   -webkit-appearance: none;
 }
 
- .category-label {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   flex-basis: 30%;
-   border-radius: 3px;
-   border: 2px solid;
-   padding: 15px 50px;
+.category-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-basis: 30%;
+  border-radius: 3px;
+  border: 2px solid;
+  padding: 15px 50px;
 }
 
 .category-icon {
@@ -107,7 +110,7 @@ form > * {
   align-self: center;
 }
 
-.button-title {
+.category-button-title {
   align-self: center;
   margin-top: 3px;
   font-size: 1em;
@@ -128,39 +131,17 @@ form > * {
   color: #FD8078;
 }
 
-.error-message {
-  color: #EFB7EC;
-  font-size: 1em;
-  margin-top: 10px;
-  visibility: none;
-}
-
-.warning-icon {
-  height: .9em;
-  width: .9em;
-  margin: 10px 3px 0px 0px;
-}
-
-/* ----------activity inputs----------- */
+/* ----------ACTIVITY INPUTS----------- */
 
 .activity-container {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   list-style-type: none;
   padding: 0;
 }
 
 .activity-input-label {
-  display: block;
-}
-
-.activity-text-input-label {
-  margin-top: -20px;
-}
-
-.activity-time-input-label {
-margin-top: -15px;
+  margin-top: -15px;
 }
 
 .activity-input {
@@ -170,10 +151,6 @@ margin-top: -15px;
   margin-top: 20px;
   color: #CBC9CF;
   font-size: 1em;
-
-}
-
-.activity-input {
   width: 100%;
   outline: none;
 }
@@ -199,59 +176,42 @@ margin-top: -15px;
 
 /* ------------Timer--------------- */
 
-.meditate-color {
-  border-color: #C278FD;
-}
-
-.study-color {
-   border-color: #B3FD78
-}
-
-.exercise-color {
-  border-color: #FD8078;
-}
-
 .timer-container {
   text-align: center;
   font-size: 1.2em;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: space-between; */
   height: 70%;
 }
 
 .timer {
   font-family: 'Montserrat400', sans-serif; font-family;
   font-weight: bold;
-  font-size: 4em;
+  font-size: 4.3em;
 }
 
 .timer-button {
   background: transparent;
   margin-top: 55px;
-  height: 45%;
-  width: 35%;
-  border-radius: 5em;
+  height: 260px;
+  width: 260px;
+  border-radius: 50%;
   border: solid;
   color: #FFF;
-  font-size: 1.3em;
+  font-size: 1.5em;
 }
 
 .timer-button:focus {
   outline: none;
 }
 
-.timer-button:hover {
-  background-color: #42454a;
-}
-
 .timer-activity-text {
-  font-size: 1.1em;
+  font-size: 1.15em;
   color: #CBC9CF;
 }
 
-.log-activity {
+.log-activity-button {
   align-self: center;
   margin: 5%;
   padding: 7px 20px;
@@ -261,7 +221,12 @@ margin-top: -15px;
   font-size: 1em;
 }
 
-/* Create new activity button */
+.congratulatory-message {
+  font-size: 1.4em;
+  color: #FFF;
+  font-weight: lighter;
+  font-family: inherit;
+}
 
 .create-new-activity {
   padding: 7px 20px;
@@ -274,7 +239,7 @@ margin-top: -15px;
   text-align: center;
 }
 
-/* ----------past activities section------ */
+/* ----------PAST ACTIVITIES SECTION------ */
 
 .past-activity-default {
   font-size: .8em;
@@ -299,7 +264,7 @@ margin-top: -15px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
   border-radius: 3px;
   margin: 20px 20px;
-  padding: 0;
+  color: #CBC9CF;
 }
 
 .past-activity {
@@ -318,14 +283,10 @@ margin-top: -15px;
   font-weight: bold;
   font-size: .9em;
   align-self: flex-start;
-}
-
-.past-activity-time, .past-activity-description {
-  color: #CBC9CF;
+  color: #FFF;
 }
 
 .color-icon{
-  background-color: white;
   height: 30px;
   width: 5px;
   border-radius: 5px;
@@ -339,7 +300,7 @@ margin-top: -15px;
   font-size: .9em;
 }
 
-/* -------timer border color---------------- */
+/* ----------COLORS------------- */
 
 .timer-study-color {
    border-color: #B3FD78;
@@ -353,7 +314,9 @@ margin-top: -15px;
   border-color: #FD8078;
 }
 
-/* ----------card icon color---------------- */
+.error-message-color {
+  border-color: #EFB7EC;
+}
 
 .card-study-color {
   background-color: #B3FD78;
@@ -367,25 +330,12 @@ margin-top: -15px;
   background-color: #FD8078;
 }
 
+/*-------------STATE------------- */
+
 .hidden {
   display: none;
 }
 
 .visibility-hidden {
   visibility: hidden;
-}
-
-.margin-0 {
-  margin-top: 0;
-}
-
-.error-message-color {
-  border-color: #EFB7EC;
-}
-
-.timer-removed {
-  font-size: 1.4em;
-  color: #FFF;
-  font-weight: lighter;
-  font-family: inherit;
 }
