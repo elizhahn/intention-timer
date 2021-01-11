@@ -71,13 +71,13 @@ function displayTimer() {
     }
   }
   if(category.contains("study-box")) {
-    timerButton.classList.add("study-color");
+    timerButton.classList.add("timer-study-color");
   }
   else if(category.contains("meditate-box")) {
-    timerButton.classList.add("meditate-color");
+    timerButton.classList.add("timer-meditate-color");
   }
   else {
-    timerButton.classList.add("exercise-color");
+    timerButton.classList.add("timer-exercise-color");
  }
 }
 
@@ -95,7 +95,7 @@ function validateNumberSeconds(){
 };
 
 function displayActivatedIcon() {
-  checkIcons();
+  checkIcons(); 
   for(var i = 0; i < categoryInputs.length; i++) {
     if(categoryInputs[i].checked) {
       iconActivated[i].classList.toggle('hidden');
@@ -150,7 +150,6 @@ function showErrorMessage(index) {
 
 function startCountdown() {
   currentActivity.countdown();
-  // createdActivities[0].countdown();
 }
 
 function checkErrorMessages() {
@@ -162,22 +161,10 @@ function checkErrorMessages() {
   }
 }
 
-
 function logActivity() {
-    currentActivity.markComplete();
-   var pastActivityCardColor = document.querySelectorAll(".past-activity");
-   console.log(pastActivityCardColor);
-   for (var i = 0; i < pastActivityCardColor.length; i++) {
-     if(currentActivity.category === "meditate") {
-       pastActivityCardColor[i].classList.add("meditate-color");
-     } else if(currentActivity.category === "study") {
-       pastActivityCardColor[i].classList.add("study-color");
-     }else {
-       pastActivityCardColor[i].classList.add("exercise-color")
-     }
- }
-   saveCard();
-   clearTimerSection();
+  currentActivity.saveToStorage();
+  currentActivity.markComplete();
+  clearTimerSection();
   }
 
   function clearTimerSection() {
@@ -212,19 +199,15 @@ function logActivity() {
   }
 
 function showCardMarkerColor() {
+  var pastActivityCardColor = document.querySelectorAll(".color-icon");
     for(i = 0; i < pastActivities.length; i++){
-    var pastActivityCardColor = document.querySelectorAll(".past-activity");
     if(pastActivities[i].category === "meditate") {
-      pastActivityCardColor[i].classList.add("meditate-color");
+      pastActivityCardColor[i].classList.add("card-meditate-color");
     } else if(pastActivities[i].category === "study") {
-      pastActivityCardColor[i].classList.add("study-color");
+      pastActivityCardColor[i].classList.add("card-study-color");
     } else {
-      pastActivityCardColor[i].classList.add("exercise-color");      }
+      pastActivityCardColor[i].classList.add("card-exercise-color");      }
    }
-  }
-
-function saveCard() {
-    currentActivity.saveToStorage();
   }
 
 function displayMessage() {
@@ -242,7 +225,7 @@ function listPastCards() {
 }
 
 function showPastActivityCards() {
-  listPastCards();
+   listPastCards();
   for(var i = 0; i < localStorage.length; i++) {
     var card = document.createElement("li");
     pastActivityList.appendChild(card);

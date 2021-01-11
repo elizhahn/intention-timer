@@ -339,16 +339,32 @@ margin-top: -15px;
   font-size: .9em;
 }
 
-.meditate-color {
+/* -------timer border color---------------- */
+
+.timer-study-color {
+   border-color: #B3FD78;
+}
+
+.timer-meditate-color {
   border-color: #C278FD;
 }
 
-.study-color {
-   border-color: #B3FD78
+.timer-exercise-color {
+  border-color: #FD8078;
 }
 
-.exercise-color {
-  border-color: #FD8078;
+/* ----------card icon color---------------- */
+
+.card-study-color {
+  background-color: #B3FD78;
+}
+
+.card-meditate-color {
+  background-color: #C278FD;
+}
+
+.card-exercise-color {
+  background-color: #FD8078;
 }
 
 .hidden {
