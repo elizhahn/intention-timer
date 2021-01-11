@@ -9,6 +9,7 @@ class Activity {
   };
   countdown(){
     var time = Number(this.minutes * 60) + Number(this.seconds)
+    time--;
     var decreaseTime = setInterval(function() {
       var minutes = String(Math.trunc(time / 60)).padStart(2, 0)
       var seconds = String(Math.trunc(time % 60)).padStart(2, 0)
