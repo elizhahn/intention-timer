@@ -18,12 +18,12 @@ class Activity {
     time--;
     var minutes = String(Math.trunc(time / 60)).padStart(2, 0);
     var seconds = String(Math.trunc(time % 60)).padStart(2, 0);
-    timer.textContent = `${minutes}:${seconds}`;
+    changeTimerContent(minutes, seconds);
     var decreaseTime = setInterval(function() {
       time--;
       var minutes = String(Math.trunc(time / 60)).padStart(2, 0);
       var seconds = String(Math.trunc(time % 60)).padStart(2, 0);
-      timer.textContent = `${minutes}:${seconds}`;
+      changeTimerContent(minutes, seconds);
       if(time === -1) {
         clearInterval(decreaseTime);
         this.timerRunning = false;
