@@ -12,7 +12,6 @@ Error: #EFB7EC */
 * {
 margin: 0;
 font-family: 'Montserrat', sans-serif;
-/* font-size: 20px; */
 }
 
 body {
@@ -59,7 +58,6 @@ main {
   padding: 25px 80px;
   background-color: #46424D;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
-  /* height: 70%; */
 }
 
 form {
@@ -146,7 +144,6 @@ form > * {
 .activity-container {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   list-style-type: none;
   padding: 0;
 }
@@ -217,7 +214,6 @@ margin-top: -15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: space-between; */
   height: 70%;
 }
 
