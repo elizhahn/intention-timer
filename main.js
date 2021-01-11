@@ -7,8 +7,8 @@ var inputActivity = document.getElementById('activity');
 var inputMinutes = document.getElementById("minutes");
 var inputSeconds = document.getElementById("seconds");
 var buttonStartActivity = document.querySelector(".activity-button");
+var buttonLogActivity = document.querySelector('.log-activity-button');
 var buttonTitles = document.querySelector('.button-title');
-var buttonLogActivity = document.querySelector(".log-activity");
 var errorMessages = document.querySelectorAll('.error-message');
 var warningIcons = document.querySelectorAll('.warning-icon');
 var form = document.querySelector("form");
@@ -16,7 +16,6 @@ var containerTimer = document.querySelector(".timer-container");
 var timer = document.querySelector(".timer");
 var timerText = document.querySelector(".timer-activity-text");
 var timerButton = document.querySelector(".timer-button");
-var logActivityButton = document.querySelector('.log-activity');
 var createNewActivity = document.querySelector('.create-new-activity');
 var mainTitle = document.querySelector(".main-title")
 var pastActivityList = document.querySelector(".past-activity-list");
@@ -64,6 +63,7 @@ function displayTimer() {
   display(containerTimer);
   changeTitle();
   displayTime();
+  timer.classList.remove('congratulatory-message');
   var category;
   for (var i = 0; i < categoryInputs.length; i++){
     if(categoryInputs[i].checked) {
@@ -117,7 +117,7 @@ function checkIcons() {
 function validateForm() {
   if(currentIcon === undefined) {
     showErrorMessage(0);
-    errorMessages[0].classList.add('margin-0');
+    // errorMessages[0].classList.add('margin-0');
   }
   else if (!checkInputs()) {
     checkInputs();
@@ -212,8 +212,8 @@ function showCardMarkerColor() {
 
 function displayMessage() {
 timer.textContent = `YOU DID IT! CONGRATULATIONS ON FINISHING YOUR ${currentActivity.category.toUpperCase()} SESSION!`;
-timer.classList.add('timer-removed');
-display(logActivityButton);
+timer.classList.add('congratulatory-message');
+display(buttonLogActivity);
 }
 
 function listPastCards() {
