@@ -95,7 +95,7 @@ function validateNumberSeconds(){
 };
 
 function displayActivatedIcon() {
-  checkIcons(); 
+  checkIcons();
   for(var i = 0; i < categoryInputs.length; i++) {
     if(categoryInputs[i].checked) {
       iconActivated[i].classList.toggle('hidden');
