@@ -188,34 +188,30 @@ form > * {
 .timer {
   font-family: 'Montserrat400', sans-serif; font-family;
   font-weight: bold;
-  font-size: 4em;
+  font-size: 4.3em;
 }
 
 .timer-button {
   background: transparent;
   margin-top: 55px;
-  height: 45%;
-  width: 35%;
-  border-radius: 5em;
+  height: 260px;
+  width: 260px;
+  border-radius: 50%;
   border: solid;
   color: #FFF;
-  font-size: 1.3em;
+  font-size: 1.5em;
 }
 
 .timer-button:focus {
   outline: none;
 }
 
-.timer-button:hover {
-  background-color: #42454a;
-}
-
 .timer-activity-text {
-  font-size: 1.1em;
+  font-size: 1.15em;
   color: #CBC9CF;
 }
 
-.log-activity {
+.log-activity-button {
   align-self: center;
   margin: 5%;
   padding: 7px 20px;
@@ -225,13 +221,12 @@ form > * {
   font-size: 1em;
 }
 
-.timer-removed {
+.congratulatory-message {
   font-size: 1.4em;
   color: #FFF;
   font-weight: lighter;
   font-family: inherit;
 }
-/* Create new activity button */
 
 .create-new-activity {
   padding: 7px 20px;
