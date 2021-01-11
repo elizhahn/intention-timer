@@ -244,3 +244,7 @@ function showPastActivityCards() {
   }
   showCardMarkerColor();
  }
+
+function changeTimerContent(minutes, seconds) {
+  timer.textContent = `${minutes}:${seconds}`; 
+}
