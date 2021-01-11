@@ -6,6 +6,7 @@ class Activity {
     this.seconds = seconds;
     this.completed = completed;
     this.id = id;
+    this.timeRunning = false;
   };
   countdown(){
     var time = Number(this.minutes * 60) + Number(this.seconds)
