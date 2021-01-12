@@ -242,14 +242,14 @@ h2 {
 /* ----------PAST ACTIVITIES SECTION------ */
 
 .past-activity-default {
-  font-size: .8em;
+  font-size: 1em;
   margin-bottom: 5px;
   color: #CBC9CF;
   text-align: center;
 }
 
 .default-text-wrapper {
-  margin: 40px 40px 0px 40px;
+  margin: 35px 30px 0px 30px;
 }
 
 .past-activity-list {
