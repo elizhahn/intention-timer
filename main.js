@@ -20,11 +20,11 @@ var createNewActivity = document.querySelector('.create-new-activity');
 var mainTitle = document.querySelector(".main-title")
 var pastActivityList = document.querySelector(".past-activity-list");
 var defaultText = document.querySelector(".default-text-wrapper");
+
 var currentIcon;
 var pastActivities = [];
 var currentActivity;
 var inputs = [currentIcon, inputActivity, inputMinutes, inputSeconds];
-
 
 window.addEventListener('load', showPastActivityCards);
 categoryContainer.addEventListener("click", displayActivatedIcon);
@@ -35,7 +35,7 @@ createNewActivity.addEventListener('click', goHome);
 inputMinutes.addEventListener("keyup", validateNumberMinutes);
 inputSeconds.addEventListener("keyup", validateNumberSeconds);
 form.addEventListener("submit", function() {
-  event.preventDefault();
+event.preventDefault();
 });
 
 function display(feature) {
@@ -48,7 +48,7 @@ function hide(feature) {
 
 function changeTitle() {
   changeInnerText(mainTitle, "Current Activity");
-  changeInnerText(timerText, `${inputActivity.value}`);
+  changeInnerText(timerText, inputActivity.value);
   changeInnerText(timerButton, "START");
 }
 
@@ -102,6 +102,7 @@ function validateNumberSeconds(){
 
 function displayActivatedIcon() {
   checkIcons();
+  // var currentIcon;
   for(var i = 0; i < categoryInputs.length; i++) {
     if(categoryInputs[i].checked) {
       iconActivated[i].classList.toggle('hidden');
@@ -119,7 +120,7 @@ function checkIcons() {
     }
   }
 }
-//refactor this to take out class list add
+
 function validateForm() {
   if(currentIcon === undefined) {
     showErrorMessage(0);
@@ -204,6 +205,7 @@ function logActivity() {
     hide(createNewActivity);
     hide(containerTimer);
     display(form);
+    checkErrorMessages();
     changeInnerText(mainTitle, "Start Activity");
     for(var i = 0; i < inputs.length; i++) {
       if(i > 0) {
