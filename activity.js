@@ -31,8 +31,8 @@ class Activity {
       }
     }, 1000);
   } else {
-  timerButton.innerText = 'COMPLETE!'
-  displayMessage();
+    changeTimerButtonText('COMPLETE!');
+    displayMessage();
   };
   };
   markComplete() {
