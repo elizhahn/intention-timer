@@ -123,7 +123,7 @@ function validateForm() {
     checkInputs();
   }
   else {
-    currentActivity = new Activity(currentIcon.id, inputActivity.value, inputMinutes.value, inputSeconds.value, true,);
+    currentActivity = new Activity(currentIcon.id, inputActivity.value, inputMinutes.value, inputSeconds.value);
     displayTimer();
   }
 }
@@ -181,6 +181,7 @@ card.innerHTML =
 }
 
 function logActivity() {
+  currentActivity.markComplete(); 
   currentActivity.saveToStorage();
   showNewCard();
   clearTimerSection();
