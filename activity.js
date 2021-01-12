@@ -1,11 +1,11 @@
 class Activity {
-  constructor(category, description, minutes, seconds, completed, id) {
+  constructor(category, description, minutes, seconds) {
     this.category = category;
     this.description = description;
     this.minutes = minutes;
     this.seconds = seconds;
-    this.completed = completed;
-    this.id = id;
+    this.completed = false;
+    this.id = 0;
     this.timerRunning = false;
   };
   countdown() {
@@ -36,18 +36,16 @@ class Activity {
   };
   };
   markComplete() {
-      
-    }
+      this.completed = true;
+      if(localStorage.length === 0) {
+        this.id = "storage " + 0;
+      } else {
+        this.id = "storage " + localStorage.length;
+    };
+  };
 
   saveToStorage() {
     var savedActivity = JSON.stringify(this);
-        if(localStorage.length === 0) {
-          //key = this.id
-          var key = "storage " + 0;
-          localStorage.setItem(key, savedActivity);
-        } else {
-          var key = "storage " + localStorage.length;
-          localStorage.setItem(key, savedActivity);
-        };
-      };
+    localStorage.setItem(this.id, savedActivity);
+   };
   };
