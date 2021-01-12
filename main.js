@@ -61,6 +61,7 @@ function displayTime() {
 function displayTimer() {
   hide(form);
   display(containerTimer);
+  changeTimerButtonText('START');
   changeTitle();
   displayTime();
   timer.classList.remove('congratulatory-message');
@@ -117,7 +118,6 @@ function checkIcons() {
 function validateForm() {
   if(currentIcon === undefined) {
     showErrorMessage(0);
-    // errorMessages[0].classList.add('margin-0');
   }
   else if (!checkInputs()) {
     checkInputs();
@@ -192,6 +192,7 @@ function logActivity() {
     display(createNewActivity);
     mainTitle.innerText = 'Completed Activity';
   }
+
   function goHome() {
     hide(createNewActivity);
     hide(containerTimer);
@@ -264,3 +265,11 @@ function showPastActivityCards() {
   }
   showCardMarkerColor();
  }
+
+function changeTimerContent(minutes, seconds) {
+  timer.textContent = `${minutes}:${seconds}`;
+}
+
+function changeTimerButtonText(text) {
+  timerButton.innerText = text;
+}
