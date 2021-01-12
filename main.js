@@ -40,21 +40,21 @@ event.preventDefault();
 
 function display(feature) {
   feature.classList.remove("hidden");
-}
+};
 
 function hide(feature) {
   feature.classList.add("hidden");
-}
+};
 
 function changeTitle() {
   changeInnerText(mainTitle, "Current Activity");
   changeInnerText(timerText, inputActivity.value);
   changeInnerText(buttonTimer, "START");
-}
+};
 
 function changeInnerText(element, text) {
   element.innerText = text;
-}
+};
 
 function displayActivatedIcon() {
   checkIcons();
@@ -71,9 +71,9 @@ function checkIcons() {
   for (var i = 0; i < iconDeactivated.length; i++) {
     if(!iconDeactivated[i].classList.contains('hidden')) {
       hide(iconDeactivated[i]);
-      display(iconActivated[i])
-    }
-  }
+      display(iconActivated[i]);
+    };
+  };
 };
 
 function checkErrorMessages() {
@@ -81,8 +81,8 @@ function checkErrorMessages() {
     if(!errorMessages[i].classList.contains('visibility-hidden')) {
       errorMessages[i].classList.toggle('visibility-hidden');
       inputs[i].classList.toggle('error-message-color');
-    }
-  }
+    };
+  };
 };
 
 function showErrorMessage(index) {
@@ -90,22 +90,20 @@ function showErrorMessage(index) {
   errorMessages[index].classList.remove('visibility-hidden');
   warningIcons[index].classList.remove('visibility-hidden');
   if(index > 0) {
-    console.log(inputs[index])
     inputs[index].classList.toggle('error-message-color');
-  }
+  };
 };
-
-
 
 function checkInputs() {
   for(var i = 1; i < inputs.length; i++) {
     if(!inputs[i].value) {
       showErrorMessage(i);
-      return false
-    }
-  }
+      return false;
+    };
+  };
   return true;
-}
+};
+
 function validateNumberMinutes(){
   if (!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) && !(event.keyCode == 8)){
     event.target.value = event.target.value.substring(0, event.target.value.length - 1);
@@ -116,7 +114,7 @@ function validateNumberSeconds(){
   if (!(event.keyCode >= 48 && event.keyCode <= 57) && !(event.keyCode >= 96 && event.keyCode <= 105) && !(event.keyCode == 8)){
     event.target.value = event.target.value.substring(0, event.target.value.length - 1);
   };
-}
+};
 
 function validateForm() {
   if(currentIcon === undefined) {
@@ -128,15 +126,15 @@ function validateForm() {
   else {
     currentActivity = new Activity(currentIcon.id, inputActivity.value, inputMinutes.value, inputSeconds.value);
     displayTimer();
-  }
-}
+  };
+};
 
 function displayTime() {
   var time = Number(inputMinutes.value * 60) + Number(inputSeconds.value)
   var minutes = String(Math.trunc(time / 60)).padStart(2, 0);
   var seconds = String(Math.trunc(time % 60)).padStart(2, 0);
-  timer.textContent = `${minutes}:${seconds}`
-}
+  timer.textContent = `${minutes}:${seconds}`;
+};
 
 function displayTimer() {
   hide(form);
@@ -149,7 +147,7 @@ function displayTimer() {
     if(categoryInputs[i].checked) {
       category = categoryInputs[i].classList;
     }
-  }
+  };
   if(category.contains("study-box")) {
     buttonTimer.classList.add("timer-study-color");
   }
@@ -181,7 +179,7 @@ function logActivity() {
 function clearTimerSection() {
   hide(containerTimer);
   display(buttonCreateNewActivity);
-  changeInnerText(mainTitle, "Completed Activity")
+  changeInnerText(mainTitle, "Completed Activity");
 };
 
 function showNewCard() {
@@ -201,7 +199,7 @@ card.innerHTML =
  </article>`;
  pastActivities.push(currentActivity);
  showCardMarkerColor();
-}
+};
 
 function showCardMarkerColor() {
   var pastActivityCardColor = document.querySelectorAll(".color-icon");
@@ -211,8 +209,8 @@ function showCardMarkerColor() {
       } else if(pastActivities[i].category === "study") {
         pastActivityCardColor[i].classList.add("card-study-color");
       } else {
-        pastActivityCardColor[i].classList.add("card-exercise-color")
-      };
+        pastActivityCardColor[i].classList.add("card-exercise-color");
+      }
     };
   };
 
@@ -233,7 +231,7 @@ function goHome() {
       clearInputs();
     } else {
       clearCategory();
-    };
+    }
   };
 };
 
@@ -243,17 +241,17 @@ function clearCategory() {
       categoryInputs[i].checked = false;
       checkIcons();
     }
-  }
-}
+  };
+};
 
 function clearInputs() {
   for(var i = 0; i < 3; i++) {
     inputs[i + 1].value = "";
-  }
-}
+  };
+};
 
 function listPastCards() {
-  var storagePrefix = "storage "
+  var storagePrefix = "storage ";
   for(var i = 0; i < localStorage.length; i++) {
     var saved = localStorage.getItem(`${storagePrefix}${i}`);
     saved = JSON.parse(saved);
@@ -262,9 +260,9 @@ function listPastCards() {
 };
 
 function showPastActivityCards() {
-   listPastCards();
+  listPastCards();
   if(localStorage.length > 0){
-    hide(defaultText);
+  hide(defaultText);
   }
   for(var i = 0; i < localStorage.length; i++) {
     var card = document.createElement("li");
@@ -281,6 +279,6 @@ function showPastActivityCards() {
           <p>${pastActivities[i].description}</p>
         </li>
      </article>`
-  }
-    showCardMarkerColor();
-}
+  };
+  showCardMarkerColor();
+};
