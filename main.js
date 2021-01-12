@@ -46,8 +46,13 @@ function hide(feature) {
 }
 
 function changeTitle() {
-  mainTitle.innerText = "Current Activity"
-  timerText.innerText = `${inputActivity.value}`
+  changeInnerText(mainTitle, "Current Activity");
+  changeInnerText(timerText, `${inputActivity.value}`);
+  changeInnerText(timerButton, "START");
+}
+
+function changeInnerText(element, text) {
+  element.innerText = text;
 }
 
 function displayTime() {
@@ -61,7 +66,7 @@ function displayTime() {
 function displayTimer() {
   hide(form);
   display(containerTimer);
-  changeTimerButtonText('START');
+  // changeTimerButtonText('START');
   changeTitle();
   displayTime();
   timer.classList.remove('congratulatory-message');
@@ -181,22 +186,24 @@ card.innerHTML =
 }
 
 function logActivity() {
-  currentActivity.markComplete(); 
+  currentActivity.markComplete();
   currentActivity.saveToStorage();
   showNewCard();
   clearTimerSection();
+  hide(buttonLogActivity);
   }
 
   function clearTimerSection() {
     hide(containerTimer);
     display(createNewActivity);
-    mainTitle.innerText = 'Completed Activity';
+    changeInnerText(mainTitle, "Completed Activity")
   }
 
   function goHome() {
     hide(createNewActivity);
     hide(containerTimer);
     display(form);
+    changeInnerText(mainTitle, "Start Activity");
     for(var i = 0; i < inputs.length; i++) {
       if(i > 0) {
         clearInputs();
@@ -268,8 +275,4 @@ function showPastActivityCards() {
 
 function changeTimerContent(minutes, seconds) {
   timer.textContent = `${minutes}:${seconds}`;
-}
-
-function changeTimerButtonText(text) {
-  timerButton.innerText = text;
 }
