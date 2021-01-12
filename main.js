@@ -161,9 +161,29 @@ function checkErrorMessages() {
   }
 }
 
+function showNewCard() {
+var card = document.createElement("li");
+pastActivityList.appendChild(card);
+card.classList.add("past-activity-card");
+card.innerHTML =
+`<article class="card">
+    <li class="past-activity">
+     <p class="past-activity-category">${currentActivity.category.charAt(0).toUpperCase() + currentActivity.category.slice(1)}</p>
+     <div class="color-icon"></div>
+    </li>
+    <time class="past-activity-time">${currentActivity.minutes} MIN ${currentActivity.seconds} SECONDS</time>
+    <li class="past-activity-description">
+      <p>${currentActivity.description}</p>
+    </li>
+ </article>`;
+ pastActivities.push(currentActivity);
+ showCardMarkerColor();
+}
+
 function logActivity() {
+  currentActivity.markComplete(); 
   currentActivity.saveToStorage();
-  currentActivity.markComplete();
+  showNewCard();
   clearTimerSection();
   }
 
