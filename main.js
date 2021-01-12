@@ -19,6 +19,7 @@ var timerButton = document.querySelector(".timer-button");
 var createNewActivity = document.querySelector('.create-new-activity');
 var mainTitle = document.querySelector(".main-title")
 var pastActivityList = document.querySelector(".past-activity-list");
+var defaultText = document.querySelector(".default-text-wrapper");
 var currentIcon;
 var pastActivities = [];
 var currentActivity;
@@ -62,11 +63,10 @@ function displayTime() {
   timer.textContent = `${minutes}:${seconds}`
 }
 
-//will need to change inputMinutes to createdActivity (obj instance) exstenion
+
 function displayTimer() {
   hide(form);
   display(containerTimer);
-  // changeTimerButtonText('START');
   changeTitle();
   displayTime();
   timer.classList.remove('congratulatory-message');
@@ -186,6 +186,7 @@ card.innerHTML =
 }
 
 function logActivity() {
+  hide(defaultText);
   currentActivity.markComplete();
   currentActivity.saveToStorage();
   showNewCard();
@@ -254,6 +255,9 @@ function listPastCards() {
 
 function showPastActivityCards() {
    listPastCards();
+  if(localStorage.length > 0){
+    hide(defaultText);
+  }
   for(var i = 0; i < localStorage.length; i++) {
     var card = document.createElement("li");
     pastActivityList.appendChild(card);
