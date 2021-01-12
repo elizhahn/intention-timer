@@ -37,11 +37,12 @@ class Activity {
   };
   };
   markComplete() {
+    var storagePrefix = "storage "
       this.completed = true;
       if(localStorage.length === 0) {
-        this.id = "storage " + 0;
+        this.id = `${storagePrefix + 0}`
       } else {
-        this.id = "storage " + localStorage.length;
+        this.id = `${storagePrefix +localStorage.length}`
     };
   };
 

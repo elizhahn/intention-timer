@@ -248,8 +248,9 @@ display(buttonLogActivity);
 }
 
 function listPastCards() {
+  var storagePrefix = "storage "
   for(var i = 0; i < localStorage.length; i++) {
-    var saved = localStorage.getItem("storage " + i);
+    var saved = localStorage.getItem(`${storagePrefix}${i}`);
     saved = JSON.parse(saved);
     pastActivities.push(saved);
   }
