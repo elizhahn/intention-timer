@@ -27,12 +27,12 @@ class Activity {
       if(time === -1) {
         clearInterval(decreaseTime);
         this.timerRunning = false;
-        changeInnerText(timerButton, "COMPLETE!")
+        changeInnerText(buttonTimer, "COMPLETE!")
         displayMessage();
       }
     }, 1000);
   } else {
-    changeInnerText(timerButton, 'COMPLETE!');
+    changeInnerText(buttonTimer, 'COMPLETE!');
     displayMessage();
   };
   };
