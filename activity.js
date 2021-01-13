@@ -27,20 +27,22 @@ class Activity {
       if(time === -1) {
         clearInterval(decreaseTime);
         this.timerRunning = false;
+        changeInnerText(buttonTimer, "COMPLETE!")
         displayMessage();
       }
     }, 1000);
   } else {
-    changeTimerButtonText('COMPLETE!');
+    changeInnerText(buttonTimer, 'COMPLETE!');
     displayMessage();
   };
   };
   markComplete() {
+    var storagePrefix = "storage "
       this.completed = true;
       if(localStorage.length === 0) {
-        this.id = "storage " + 0;
+        this.id = `${storagePrefix + 0}`
       } else {
-        this.id = "storage " + localStorage.length;
+        this.id = `${storagePrefix +localStorage.length}`
     };
   };
 
