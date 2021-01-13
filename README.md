@@ -65,7 +65,7 @@ On the main page, the user will need to fill out a form for their activity. The 
 ## Timer
 When the user clicks the "START ACTIVITY" button, The form will disappear, and a timer will appear that displays the time the user input into the form and the activity description. The timer button will have a corresponding color to the category picked on the form. When the user clicks the "START" button, the timer will begin to count down. Once the timer reaches zero minutes and zero seconds, "COMPLETE" will display inside the button, a "LOG ACTIVITY" button appears and a congratulatory message. 
 
-![](https://gph.is/g/46dnJgd)
+![](https://media.giphy.com/media/6UGpfy85sPHNPRj5TU/giphy.gif)
 
 
 ## Past Activity Cards
