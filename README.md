@@ -59,20 +59,20 @@ The main page was built to match this [spec](https://frontend.turing.io/projects
 On the main page, the user will need to fill out a form for their activity. The user will select a category and see a color light up when category button is clicked. The user can then fill out the remaining inputs. If any of the inputs are not filled out, an error message will appear prompting the user for the correct information. 
 
 
-![]()
+![](https://media.giphy.com/media/L7zDlgnB7CtXHelvfu/giphy.gif)
 
 
 ## Timer
 When the user clicks the "START ACTIVITY" button, The form will disappear, and a timer will appear that displays the time the user input into the form and the activity description. The timer button will have a corresponding color to the category picked on the form. When the user clicks the "START" button, the timer will begin to count down. Once the timer reaches zero minutes and zero seconds, "COMPLETE" will display inside the button, a "LOG ACTIVITY" button appears and a congratulatory message. 
 
-![]()
+![](https://gph.is/g/46dnJgd)
 
 
 ## Past Activity Cards
 
 If the user clicks the "LOG ACTIVITY" button, a card will be created and displayed on the right side of the window, and the timer will disappear revealing a "CREATE NEW ACTIVITY" button. This created card will describe the category, time, and activity description. In addition, each card has a colored marker that indicates which category was chosen. 
 
-![]()
+![](https://media.giphy.com/media/1ATbZs33HEWfxrFNNI/giphy.gif)
 
 ---
 
@@ -81,7 +81,7 @@ If the user clicks the "LOG ACTIVITY" button, a card will be created and display
 
 When the user clicks the "CREATE NEW ACTIVITY" button, the main page will be displayed. The past activity cards will be displayed and the form will be ready for another session. Upon page load the past activity cards will still be displayed. 
 
-![]()
+![](https://media.giphy.com/media/qK1qw5hQAQk1DpCisq/giphy.gif)
 
 
 ## Challenges
