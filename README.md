@@ -1,7 +1,7 @@
 ## Intention Timer
 ---
 
-A [Front-End Project](https://frontend.turing.io/projects/module-1/intention-timer-group.html) by [Elizabeth Hahn](https://github.com/elizhahn), [Jackson McGuire](https://github.com/Jacksonmcguire), [Owen Hallgren]
+A [Front-End Project](https://frontend.turing.io/projects/module-1/intention-timer-group.html) by [Elizabeth Hahn](https://github.com/elizhahn), [Jackson McGuire](https://github.com/Jacksonmcguire), [Owen Hallgren](https://github.com/owenhallgren)
 
 
 
@@ -51,8 +51,6 @@ This is a Turing School of Software and Design Module 1 project. The project con
 
 The main page was built to match this [spec](https://frontend.turing.io/projects/module-1/intention-timer-group.html). 
 
-![comp]()
-
 
 ## Form Validation
 
@@ -79,26 +77,29 @@ If the user clicks the "LOG ACTIVITY" button, a card will be created and display
 
 ## Persisting Cards
 
-When the user clicks the "CREATE NEW ACTIVITY" button, the main page will be displayed. The past activity cards will be displayed and the form will be ready for another session. Upon page load the past activity cards will still be displayed. 
+When the user clicks the "CREATE NEW ACTIVITY" button, the main page will be displayed. The past activity cards will be displayed and the form will be ready for another session. Upon page load the past activity cards will still be displayed 
 
 ![](https://media.giphy.com/media/qK1qw5hQAQk1DpCisq/giphy.gif)
 
 
 ## Challenges
 
-* 
-* 
-*  
-
+* Git workflow with 3 partners vs 2 partners, specifically merge conflicts. 
+* Separating the DOM from the Data Model 
+* Implementing a timer in javaScript for the first time
+* Implementing flex box to do most of the layout
 
 ---
 ## Wins
 
-* 
-* 
-* 
+* Learning how to work as a team and communicate ideas and problem solving techniques with each other
+* Writing the HTML semantically with clean markup and consistent naming 
+* Integrating solo and group work together and improving our skills with Pull Requests and reviews 
+* Trusting each other to take on solo tasks, review code, and give/recieve feedback
 
 ---
 ## Future Additions
 
-* 
+* Animations for user experience such as a timer animation that visually shows the time ticking as a color bar around the start button
+* Ability for users to delete logged cards
+* Ability for user to pause the timer
