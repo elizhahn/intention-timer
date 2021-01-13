@@ -78,12 +78,15 @@ function checkIcons() {
 
 function checkErrorMessages() {
   for(var i = 0; i < errorMessages.length; i++) {
-    if(!errorMessages[i].classList.contains('visibility-hidden')) {
-      errorMessages[i].classList.toggle('visibility-hidden');
+    if(!errorMessages[i].classList.contains('visibility-hidden') && i === 0) {
+      errorMessages[i].classList.add('visibility-hidden');
+    } else if(!errorMessages[i].classList.contains('visibility-hidden')) {
+      errorMessages[i].classList.add('visibility-hidden');
       inputs[i].classList.toggle('error-message-color');
-    };
-  };
-};
+    }
+  }
+}
+
 
 function showErrorMessage(index) {
   checkErrorMessages();
@@ -91,7 +94,16 @@ function showErrorMessage(index) {
   warningIcons[index].classList.remove('visibility-hidden');
   if(index > 0) {
     inputs[index].classList.toggle('error-message-color');
+  }
+};
+
+function loopCategoryInputs() {
+  for(var i = 0; i < categoryInputs.length; i++) {
+    if(categoryInputs[i].checked) {
+      return true;
+    }
   };
+  return false;
 };
 
 function checkInputs() {
@@ -117,7 +129,7 @@ function validateNumberSeconds(){
 };
 
 function validateForm() {
-  if(currentIcon === undefined) {
+  if(!loopCategoryInputs()) {
     showErrorMessage(0);
   }
   else if (!checkInputs()) {
@@ -153,8 +165,8 @@ function displayTimer() {
   }
   else if(category.contains("meditate-box")) {
     buttonTimer.classList.add("timer-meditate-color");
-  }
-  else {
+  return true;
+}   else {
     buttonTimer.classList.add("timer-exercise-color");
  }
 };
