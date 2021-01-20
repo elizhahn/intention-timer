@@ -35,7 +35,7 @@ This is a Turing School of Software and Design Module 1 project. The project con
 * Javascript
 * Git
 * GitHub
-* [GitHub Pages Site](https://github.com/Jacksonmcguire/intention-timer)
+* [GitHub Pages Site](https://elizhahn.github.io/intention-timer/)
 
 ---
 ## Features
